@@ -1,6 +1,6 @@
-import { Boot } from './PhaserScenes/Boot';
-import { Preloader } from './PhaserScenes/Preloader';
-import { Game } from './PhaserScenes/Game';
+import { Boot } from './Scenes/Boot';
+import { Preloader } from './Scenes/Preloader';
+import { Game } from './Scenes/Game';
 
 
 //  Find out more information about the Game Config at:

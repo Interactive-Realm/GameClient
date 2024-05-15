@@ -16,7 +16,6 @@ const Input = ({ onSignUp, score }: Props) => {
 
     //var [score, setScore] = useState<number>();
     const onSubmit = async (values: UserHighscoreNumber) => {
-        console.log(errors.phonenumber?.message)
 
         try {
             const { data, error } = await dbUtility.CheckUserData(

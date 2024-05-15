@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { EventBus } from "./EventBus";
+import { EventBus } from "../EventBus";
 import { useContext } from 'react';
-import { UserContext } from "../UserContext";
-import { Screen } from '../App';
+import { UserContext } from "../../UserContext";
+import { Screen } from '../../App';
 
 var score = "";
 // Subscribe to score updates
