@@ -33,7 +33,7 @@ const FrontPage: React.FC<FrontPageProps> = ({ onButtonClick }) => {
             
            
             <div className='d-grid text-center container'>
-                <Button className="mainfont" variant="test" size="lg" onClick={handleButtonClick}>Ready</Button>              
+                <Button className="subfont" variant="test" size="lg" onClick={handleButtonClick}>Ready</Button>              
                 
             </div>
         </div>
