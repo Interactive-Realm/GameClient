@@ -22,9 +22,6 @@ function Highscore() {
         }, 15000);
 
         return () => clearInterval(interval);
-
-
-
             
     }, [])
 
