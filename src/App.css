@@ -9,9 +9,11 @@ body {
 
 /* Bootstrap Test */
 .btn-test{
-  color:#F57373;
-  background-color: #6E85FF;
+  color: #FFFFFF;
   border-radius: 100px;
+  border: 1px solid #FFFFFF;
+  padding: 2% 5% 2% 5%;
+
 
 }
 

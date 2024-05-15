@@ -32,8 +32,8 @@ const FrontPage: React.FC<FrontPageProps> = ({ onButtonClick }) => {
             <div className='gamename-text'>SOAPBOX SHOWDOWN</div>
             
            
-            <div className='col-md-5 mx-auto'>
-                <Button variant="outline-light" size="lg" onClick={handleButtonClick}>Test</Button>                
+            <div className='d-grid text-center container'>
+                <Button className="mainfont" variant="test" size="lg" onClick={handleButtonClick}>Ready</Button>              
                 
             </div>
         </div>
