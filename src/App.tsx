@@ -7,6 +7,8 @@ import Highscore from "./PostGame/HighscoreStandAlone";
 import HighscoreDesktop from "./PostGame/HighscoreStandAloneDesktop";
 import { UserContext } from "./UserContext";
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 
 function App() {
 

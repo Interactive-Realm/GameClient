@@ -7,6 +7,14 @@ body {
     margin: 0px;
 }
 
+/* Bootstrap Test */
+.btn-test{
+  color:#F57373;
+  background-color: #6E85FF;
+  border-radius: 100px;
+
+}
+
 /* General */
 
 .mainfont{

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 
 interface FrontPageProps {
     onButtonClick: (isClicked: boolean) => void; // Callback function type
@@ -30,8 +31,10 @@ const FrontPage: React.FC<FrontPageProps> = ({ onButtonClick }) => {
             
             <div className='gamename-text'>SOAPBOX SHOWDOWN</div>
             
-            <div className='container'>
-                <button className='buttonblack' onClick={handleButtonClick}>Ready?</button>
+           
+            <div className='col-md-5 mx-auto'>
+                <Button variant="outline-light" size="lg" onClick={handleButtonClick}>Test</Button>                
+                
             </div>
         </div>
     );
