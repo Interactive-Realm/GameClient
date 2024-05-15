@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import PhaserGame from "./game/PhaserGame";                     // Game Module
+import PhaserGame from "./Game/PhaserGame";                     // Game Module
 import IntroPage from "./PreGame/IntroPage";                    // Pre Game Module
 import PostGame from "./PostGame/PostGame";                     // Post Game Module
 // import Highscore from "./PostGame/HighscoreStandAlone";              
