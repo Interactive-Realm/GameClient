@@ -1,10 +1,17 @@
-import { forwardRef, useEffect, useLayoutEffect, useRef } from 'react';
+import { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import StartGame from './main';
 import { EventBus } from './EventBus';
+import GameOver from './GameOver';
+import { Screen } from '../App';
 
-export const PhaserGame = forwardRef(function PhaserGame()
+interface Props {
+    setScreen: React.Dispatch<React.SetStateAction<Screen>>;
+}
+
+const PhaserGame: React.FC<Props> = ({ setScreen }) => 
 {
     const game = useRef<Phaser.Game | null>(null!);
+    const [gameEnd, setGameEnd] = useState(false)
 
     useLayoutEffect(() =>
     {
@@ -30,8 +37,24 @@ export const PhaserGame = forwardRef(function PhaserGame()
         }
     });
 
+    // gameHasEnded Event emitted from Phaser Game Scene 
+    useEffect(() =>{
+        EventBus.on("gameHasEnded", (data: boolean) => {
+            setGameEnd(data);
+        });
+    })
+
     return (
-        <div id="game-container"></div>
+        <>
+        {gameEnd? (
+            <GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
+        ):(
+            <div id="game-container"></div> // Else show div container for phaser game
+        )}
+        
+        </>
     );
 
-});
+};
+
+export default PhaserGame;
