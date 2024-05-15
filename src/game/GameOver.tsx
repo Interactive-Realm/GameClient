@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EventBus } from "../EventBus";
+import { EventBus } from "./EventBus";
 import { useContext } from 'react';
 import { UserContext } from "../UserContext";
 

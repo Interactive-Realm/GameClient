@@ -54,9 +54,11 @@ export class Game extends Scene
         // Center of screen
         this.screenCenterX = (this.sys.game.config.width as number) / 2;
         this.screenCenterY = (this.sys.game.config.height as number) / 2;
+
         // Screen edges, right and bottom
         this.screenWidth = this.sys.game.config.width as number;
         this.screenHeight = this.sys.game.config.height as number;
+        
         // Player start position
         this.playerPositionY = this.screenHeight * 0.75;
         
