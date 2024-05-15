@@ -1,12 +1,12 @@
-import { useRef, useState, useEffect, useContext } from "react";
-import { IRefPhaserGame, PhaserGame } from "./game/PhaserGame";
-import { EventBus } from "./EventBus";
+import { useState, useEffect, useContext } from "react";
+import { PhaserGame } from "./game/PhaserGame";
+import { EventBus } from "./game/EventBus";
 import IntroPage from "./PreGame/IntroPage";
 import PostGame from "./PostGame/PostGame";
 import Highscore from "./PostGame/HighscoreStandAlone";
 import HighscoreDesktop from "./PostGame/HighscoreStandAloneDesktop";
 import { UserContext } from "./UserContext";
-import { BrowserRouter, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 function App() {
 
@@ -49,11 +49,6 @@ function App() {
         setGameEnd(!state);
     };
 
-    //  References to the PhaserGame component (game and scene are exposed)
-    const phaserRef = useRef<IRefPhaserGame | null>(null);
-
-    // Event emitted from the PhaserGame component
-    const currentScene = (scene: Phaser.Scene) => {};
 
     // ----- The following is the components being rendered ----- //
     return (
@@ -72,10 +67,7 @@ function App() {
                             {!gameStarted ? (
                             <IntroPage onButtonClick={handleGameButtonClick} />
                             ) : (
-                            <PhaserGame
-                            ref={phaserRef}
-                            currentActiveScene={currentScene}
-                            />
+                            <PhaserGame/>
                             )}
                         </div>
                     )}
@@ -83,8 +75,8 @@ function App() {
             </UserContext.Provider>}
         />
         <Route path="/*" element={<Navigate to='/institutdysten2024' />} />
-        <Route path="/leaderboardmobile" element={<Highscore/>} />
-        <Route path="/leaderboard" element={<HighscoreDesktop/>} />        
+        {/* <Route path="/leaderboardmobile" element={<Highscore/>} />
+        <Route path="/leaderboard" element={<HighscoreDesktop/>} />         */}
       </Routes>
       
     </BrowserRouter>
