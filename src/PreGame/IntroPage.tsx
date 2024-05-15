@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
+import { Screen } from '../App';
 
-interface FrontPageProps {
-    onButtonClick: (isClicked: boolean) => void; // Callback function type
+interface Props {
+    setScreen: React.Dispatch<React.SetStateAction<Screen>>;
 }
 // Creating the frontpage demanding a boolean parameter of a button click 
-const FrontPage: React.FC<FrontPageProps> = ({ onButtonClick }) => {
-    
-
-    // Function to handle button click
-    const handleButtonClick = () => {
-        
-        // The parameter of this component is set
-        onButtonClick(true);
-    };
+const FrontPage: React.FC<Props> = ({ setScreen }) => {
 
     return (
         <div id="app">
@@ -31,7 +24,7 @@ const FrontPage: React.FC<FrontPageProps> = ({ onButtonClick }) => {
             <div className='gamename-text'>SOAPBOX SHOWDOWN</div>
             
             <div className='container'>
-                <button className='buttonblack' onClick={handleButtonClick}>Ready?</button>
+                <button className='buttonblack' onClick={() => setScreen("game")}>Ready?</button>
             </div>
         </div>
     );

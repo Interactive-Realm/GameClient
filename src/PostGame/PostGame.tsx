@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { EventBus } from "../game/EventBus";
 import dbUtility from "./Database/dbUtility";
-import InputForm from "./Components/InputForm";
+import InputForm from "./Components/InputForm"; //Input form component
 import HighscoreList from "./Components/HighscoreList";
-import { UserContext } from "./../UserContext";
+import { UserContext } from "./../UserContext"; // Local stored user information
 import { UserHighscoreNumber } from "./types";
-import GameOver from "../game/GameOver";
+import { Screen } from "../App";
 
 var score = "";
 // Subscribe to score updates
@@ -15,23 +15,18 @@ EventBus.on("score", (data: number) => {
 
 let isCalled = true;
 
-EventBus.on("gameHasEnded", (data: boolean) => {
-    isCalled = data;
-});
+
 
 interface FrontPageProps {
-    playAgain: (isClicked: boolean) => void; // Callback function type
+    setScreen: React.Dispatch<React.SetStateAction<Screen>>;
 }
 
 
 
-const PostGame: React.FC<FrontPageProps> = ({ playAgain }) => {
+const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
-    const [weeklyHighscores, setWeeklyHighscores] = useState<
-        UserHighscoreNumber[]
-    >([]);
+    const [weeklyHighscores, setWeeklyHighscores] = useState<UserHighscoreNumber[]>([]);
     const userInfo = useContext(UserContext);
-    const [gameOver, setGameOver] = useState(true);
     userInfo.score = score;
     
 
@@ -43,8 +38,6 @@ const PostGame: React.FC<FrontPageProps> = ({ playAgain }) => {
         }
         
     }, []);
-
-    
 
     const checkUserInfo = async () => {
         if (JSON.parse(localStorage.getItem("userinfo")!) != null) {
@@ -72,25 +65,13 @@ const PostGame: React.FC<FrontPageProps> = ({ playAgain }) => {
                 
             }
         }
-    };
-
-    
+    };  
 
     const handleSignUp = () => {
         setIsSignedIn(true);
         dbUtility.GetHighscore().then((highscores) => {
             setWeeklyHighscores(highscores);
         });
-    };
-
-    const handlePlayAgain = () => {
-        // The parameter of this component is set
-        playAgain(true);
-    };
-
-    const handleGameOver = () => {
-        // The parameter of this component is set
-        setGameOver(false);
     };
 
     return (
@@ -101,10 +82,6 @@ const PostGame: React.FC<FrontPageProps> = ({ playAgain }) => {
                 className="islogo"
             ></img>
 
-            {gameOver? (
-                <GameOver onGameOver={handleGameOver}></GameOver>
-            ) :(
-                <>
                 {isSignedIn ? (
                     <>
                     <HighscoreList
@@ -116,22 +93,20 @@ const PostGame: React.FC<FrontPageProps> = ({ playAgain }) => {
                         <input
                             className="buttonwhitesmall"
                             type="submit"
-                            onClick={handlePlayAgain}
+                            onClick={() => setScreen("game")}
                             value="Play Again"
                         />
                     </div>
-                </>
-            ) : (
-                <>
+                    </>
+                ) : (
+                    <>
                     <InputForm
                         onSignUp={handleSignUp}
                         score={parseInt(userInfo.score)}
                     />
-                </>
-            )}
+                    </>
 
-                </>
-            )}
+                )}
             
         </div>
     );
