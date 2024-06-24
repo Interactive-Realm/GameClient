@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
-import { EventBus } from "../EventBus";
+import React from 'react';
 import { useContext } from 'react';
 import { UserContext } from "../../UserContext";
-import { Screen } from '../../App';
 
-var score = "";
-// Subscribe to score updates
-EventBus.on("score", (data: number) => {
-    score = data.toString();
-});
 
 interface FrontPageProps {
     onGameOver: (isClicked: boolean) => void; // Callback function type
@@ -37,7 +30,7 @@ const GameOver: React.FC<FrontPageProps> = ({ onGameOver }) => {
                         <br></br>
                         <div>
                             <p id="highscore_element" className="scoreTitle">Your Score</p>
-                            <p className="scoreText">{score}</p>
+                            <p className="scoreText">{userInfo.score}</p>
                         </div>
                         <img src="assets/crashedcar.png" className='fp-car-picture2'></img>
                         <div className='mainfont'>Want to see how far you got?</div>

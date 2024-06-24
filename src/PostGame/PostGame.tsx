@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { EventBus } from "../game/EventBus";
 import dbUtility from "./Database/dbUtility";
 import InputForm from "./Components/InputForm"; //Input form component
 import HighscoreList from "./Components/HighscoreList";
@@ -7,15 +6,7 @@ import { UserContext } from "./../UserContext"; // Local stored user information
 import { UserHighscoreNumber } from "./types";
 import { Screen } from "../App";
 
-var score = "";
-// Subscribe to score updates
-EventBus.on("score", (data: number) => {
-    score = data.toString();
-});
-
 let isCalled = true;
-
-
 
 interface FrontPageProps {
     setScreen: React.Dispatch<React.SetStateAction<Screen>>;
@@ -26,9 +17,7 @@ interface FrontPageProps {
 const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
     const [weeklyHighscores, setWeeklyHighscores] = useState<UserHighscoreNumber[]>([]);
-    const userInfo = useContext(UserContext);
-    userInfo.score = score;
-    
+    const userInfo = useContext(UserContext);    
 
     useEffect(() => {
         console.log("isCalled state: " + isCalled)

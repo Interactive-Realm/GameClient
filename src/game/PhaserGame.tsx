@@ -1,8 +1,9 @@
-import { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import StartGame from './main';
+import { forwardRef, useEffect, useLayoutEffect, useRef, useState, useContext } from 'react';
+import StartGame from '../Game/main';
 import { EventBus } from './EventBus';
 import GameOver from './Scenes/GameOver';
 import { Screen } from '../App';
+import { UserContext } from "./../UserContext"; // Local stored user information
 
 interface Props {
     setScreen: React.Dispatch<React.SetStateAction<Screen>>;
@@ -11,20 +12,20 @@ interface Props {
 const PhaserGame: React.FC<Props> = ({ setScreen }) => 
 {
     const game = useRef<Phaser.Game | null>(null!);
-    const [gameEnd, setGameEnd] = useState(false)
+    const [gameEnd, setGameEnd] = useState(false);
+    const userInfo = useContext(UserContext);
 
     useLayoutEffect(() =>
     {
-        if (game.current === null)
+        if (game.current === null && gameEnd == false)
         {
-
             game.current = StartGame("game-container"); // Starts the Phaser Game
-
+            console.log("NewGame");
         }
 
         return () =>
         {
-            if (game.current)
+            if (game.current && gameEnd == true)
             {
                 console.log("Game Current return: " + game.current)
                 game.current.destroy(true);
@@ -37,11 +38,18 @@ const PhaserGame: React.FC<Props> = ({ setScreen }) =>
         }
     });
 
+    EventBus.on("gameHasEnded", (data: boolean) => {
+        setGameEnd(data);           
+    });
+
+    // Subscribe to score updates
+    EventBus.on("score", (data: number) => {
+        userInfo.score = data.toString();
+    });
+
     // gameHasEnded Event emitted from Phaser Game Scene 
     useEffect(() =>{
-        EventBus.on("gameHasEnded", (data: boolean) => {
-            setGameEnd(data);
-        });
+
     })
 
     return (
