@@ -65,11 +65,6 @@ const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
 
     return (
         <div>
-            <img
-                src="/assets/is-logo.png"
-                alt="IS Logo"
-                className="islogo"
-            ></img>
 
                 {isSignedIn ? (
                     <>

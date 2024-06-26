@@ -9,19 +9,11 @@ const FrontPage: React.FC<Props> = ({ setScreen }) => {
 
     return (
         <div id="app">
-            <img src="/assets/is-logo.png" alt="IS Logo" className='islogo'></img>
+            
             
              <div className="headline">
-                Institutdysten
+                Intro Page
             </div>
-            <div className='underheadline'>by SDS</div>
-
-            <div className='infotext'>Drive your soapbox car, earn distance points, and secure your place on the Leaderboard.</div>
-         
-                <img src="assets/CarLogo.png" className='fp-car-picture'></img>
-               
-            
-            <div className='gamename-text'>SOAPBOX SHOWDOWN</div>
             
             <div className='container'>
                 <button className='buttonblack' onClick={() => setScreen("game")}>Ready?</button>
