@@ -1,7 +1,8 @@
 import { EventBus } from '../EventBus';
 import { Scene, GameObjects, Sound } from 'phaser';
-import Player from '../GameComponents/Player';
-import PlayerMovementHeld from '../Components/PlayerMovementHeld';
+import PlayerMovementHeld from '../Components/PlayerMovement';
+import PlayerPrefab from '../GameComponents/PlayerPrefab';
+import PlayerMovement from '../Components/PlayerMovement';
 
 export class Game extends Scene
 {
@@ -28,7 +29,7 @@ export class Game extends Scene
     
 
     // Asset variables
-    player: GameObjects.TileSprite;
+    player: GameObjects.Sprite;
     obstacles: Phaser.Physics.Arcade.Sprite[] = [];
     marginObstacles: Phaser.Physics.Arcade.Sprite[] = [];
     stripes: Phaser.Physics.Arcade.Sprite[] = [];
@@ -86,18 +87,22 @@ export class Game extends Scene
     {
         this.camera = this.cameras.main;
         this.camera.setBackgroundColor(0x141729);
-        this.SetupPlayer();
+        //this.SetupPlayer();
         //this.MovePlayer();
         this.SetupCollision();
         this.SetupPoints();
         this.SetupInstructions();
-        this.playerSprite = new Player("player", this.sys.scene, 600, 200, null, 1);
-        this.playerSprite.createPlayerObject();
+
+        const player = new PlayerPrefab(this, 400, 200, 'player');
+
+        const movementType = new PlayerMovement(player, this);
+        movementType.MovePlayerXY();
         
+                
         this.input.on('pointerdown', this.StartGame);
 
-        const movePlayer = new PlayerMovementHeld(this.player, this.sys.scene);
-        movePlayer.MovePlayer();
+        
+        
         
         // Create a timed recurring event
         
@@ -113,7 +118,7 @@ export class Game extends Scene
     }
 
     StartGame = () => {
-        this.playerSprite.destroyPlayerObject();
+        //this.playerSprite.destroyPlayerObject();
         this.RemoveInstructions();
         this.player.setVisible(true);
         console.log("Starting game");
@@ -279,7 +284,7 @@ export class Game extends Scene
    }
 
     SetupPlayer() {
-        this.player = this.add.tileSprite(this.screenCenterX, this.playerPositionY, 128, 128, 'player').setDepth(4);
+        this.player = this.add.sprite(this.screenCenterX, this.playerPositionY, 'player').setDepth(4);
         this.physics.add.existing(this.player, false);
         this.physics.world.enable(this.player);
         const playerBody = this.player.body as Phaser.Physics.Arcade.Body;
@@ -332,9 +337,6 @@ export class Game extends Scene
 
 
     MovePlayer() {
-
-        
-        
         this.input.on('pointerdown', this.SetCursorHoldTrue);
         this.input.on('pointerup', this.SetCursorHoldFalse);
         this.input.on('pointerdown', this.StartGame);
@@ -354,7 +356,6 @@ export class Game extends Scene
             // Call the update function to start moving the player towards the pointer
             this.updatePlayerPosition(pointer);
         }, this);
-
     }
 
 }
