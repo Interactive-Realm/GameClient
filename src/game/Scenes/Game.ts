@@ -94,6 +94,7 @@ export class Game extends Scene
         this.SetupInstructions();
 
         const player = new PlayerPrefab(this, 400, 200, 'player');
+        this.add.existing(player);
 
         const movementType = new PlayerMovement(player, this);
         movementType.MovePlayerXY();
