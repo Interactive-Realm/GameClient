@@ -1,6 +1,7 @@
 import { EventBus } from '../EventBus';
 import { Scene, GameObjects, Sound } from 'phaser';
 import Player from '../GameComponents/Player';
+import PlayerMovementHeld from '../Components/PlayerMovementHeld';
 
 export class Game extends Scene
 {
@@ -86,12 +87,17 @@ export class Game extends Scene
         this.camera = this.cameras.main;
         this.camera.setBackgroundColor(0x141729);
         this.SetupPlayer();
-        this.MovePlayer();
+        //this.MovePlayer();
         this.SetupCollision();
         this.SetupPoints();
         this.SetupInstructions();
         this.playerSprite = new Player("player", this.sys.scene, 600, 200, null, 1);
         this.playerSprite.createPlayerObject();
+        
+        this.input.on('pointerdown', this.StartGame);
+
+        const movePlayer = new PlayerMovementHeld(this.player, this.sys.scene);
+        movePlayer.MovePlayer();
         
         // Create a timed recurring event
         
