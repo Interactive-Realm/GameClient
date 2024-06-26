@@ -1,5 +1,6 @@
 import { EventBus } from '../EventBus';
 import { Scene, GameObjects, Sound } from 'phaser';
+import Player from '../GameComponents/Player';
 
 export class Game extends Scene
 {
@@ -31,6 +32,8 @@ export class Game extends Scene
     marginObstacles: Phaser.Physics.Arcade.Sprite[] = [];
     stripes: Phaser.Physics.Arcade.Sprite[] = [];
     instructionsImage: GameObjects.Image;
+
+    playerSprite: any;
 
     //Text variables
     private points: GameObjects.Text;
@@ -87,7 +90,9 @@ export class Game extends Scene
         this.SetupCollision();
         this.SetupPoints();
         this.SetupInstructions();
-
+        this.playerSprite = new Player("player", this.sys.scene, 600, 200, null, 1);
+        this.playerSprite.createPlayerObject();
+        
         // Create a timed recurring event
         
         console.log("Phaser version: " + Phaser.VERSION);
@@ -102,6 +107,7 @@ export class Game extends Scene
     }
 
     StartGame = () => {
+        this.playerSprite.destroyPlayerObject();
         this.RemoveInstructions();
         this.player.setVisible(true);
         console.log("Starting game");
