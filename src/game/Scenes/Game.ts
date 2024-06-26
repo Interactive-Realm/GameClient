@@ -1,5 +1,6 @@
 import { EventBus } from '../EventBus';
 import { Scene, GameObjects, Sound } from 'phaser';
+import PlayerMovementHeld from '../Components/PlayerMovementHeld';
 
 export class Game extends Scene
 {
@@ -83,11 +84,15 @@ export class Game extends Scene
         this.camera = this.cameras.main;
         this.camera.setBackgroundColor(0x141729);
         this.SetupPlayer();
-        this.MovePlayer();
+        //this.MovePlayer();
         this.SetupCollision();
         this.SetupPoints();
         this.SetupInstructions();
+        this.input.on('pointerdown', this.StartGame);
 
+        const movePlayer = new PlayerMovementHeld(this.player, this.sys.scene);
+        movePlayer.MovePlayer();
+        
         // Create a timed recurring event
         
         console.log("Phaser version: " + Phaser.VERSION);
