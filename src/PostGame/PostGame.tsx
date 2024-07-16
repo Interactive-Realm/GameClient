@@ -4,15 +4,14 @@ import InputForm from "./Components/InputForm"; //Input form component
 import HighscoreList from "./Components/HighscoreList";
 import { UserContext } from "./../UserContext"; // Local stored user information
 import { UserHighscoreNumber } from "./types";
-import { Screen } from "../App";
+import { Screen } from "basepatterncorecomponents";
+import {Score} from "databaseutilities";
 
 let isCalled = true;
 
 interface FrontPageProps {
     setScreen: React.Dispatch<React.SetStateAction<Screen>>;
 }
-
-
 
 const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
@@ -41,6 +40,10 @@ const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
                 console.log("Local Storage Matches Database entry:" + data)
                 //console.log(isSignedIn);
                 userInfo.userInfo = JSON.parse(localStorage.getItem("userinfo")!);
+                Score.UpdateScore(
+                    userInfo.userInfo,
+                    parseInt(userInfo.score)
+                );
                 dbUtility.UpdateScore(
                     userInfo.userInfo,
                     parseInt(userInfo.score)

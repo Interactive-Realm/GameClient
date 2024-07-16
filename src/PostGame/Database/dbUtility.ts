@@ -1,8 +1,9 @@
+import { defineConfig, loadEnv } from 'vite'
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import { UserHighscore, UserHighscoreNumber, UserHighscoreShort } from "../types";
 
-// const url = process.env.SUPABASE_URL!;
-// const key = process.env.SUPABASE_KEY!;
+// const url = process.env.SUPABASE_URL as string;
+// const key = process.env.SUPABASE_KEY as string;
 
 // export const supabase = createClient(url, key);
 

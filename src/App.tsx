@@ -8,13 +8,12 @@ import CampaignEnd from "./CampaignEndComponent";
 import CampaignStart from "./CampaignStartComponent";
 import { UserContext } from "./UserContext";
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { Screen, checkDate, setScreen, screen } from "basepatterncorecomponents";
 
-export type Screen = "pregame" | "game" | "postgame" | "CampaignStart" | "CampaignEnd";
+
 
 function App() {
-
     const [screen, setScreen] = useState<Screen>("pregame");
-
     let component;
     switch (screen) {
         case "pregame":
@@ -41,38 +40,10 @@ function App() {
     const userInfo = useContext(UserContext);
 
     useEffect(()=>{
-        checkDate();
+        checkDate(new Date("2024-07-06"), new Date("2024-07-07"));
     },[])
     
-    function checkDate(){
-    
-        const CampaignStartDate = new Date(2024, 6, 4, 23, 59);
-        const CampaignEndDate = new Date(2024, 6, 3, 23, 59);
-        const Today = new Date();
-
-        console.log(CampaignStartDate)
-        console.log(Today);
-        if(Today > CampaignStartDate && Today < CampaignEndDate)
-            {
-                console.log("Campaign Running");
-                setScreen("pregame");
-            }
-            
-        else if(Today < CampaignStartDate)
-            {
-                console.log("Campaign Not Started Yet");
-                setScreen("CampaignStart");
-            }
-        
-        else if(Today > CampaignEndDate)
-            {
-                console.log("Campaign Ended");
-                setScreen("CampaignEnd");
-
-            }
-
-    }
-    
+       
         
 
     // ------------------- LOCAL STORAGE DEBUG ------------------- //
