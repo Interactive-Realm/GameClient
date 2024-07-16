@@ -4,7 +4,7 @@ import InputForm from "./Components/InputForm"; //Input form component
 import HighscoreList from "./Components/HighscoreList";
 import { UserContext } from "./../UserContext"; // Local stored user information
 import { UserHighscoreNumber } from "./types";
-import { Screen } from "basepatterncorecomponents";
+import { Screen } from "basepatternutilities"
 import {Score} from "databaseutilities";
 
 let isCalled = true;
@@ -44,10 +44,6 @@ const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
                     userInfo.userInfo,
                     parseInt(userInfo.score)
                 );
-                dbUtility.UpdateScore(
-                    userInfo.userInfo,
-                    parseInt(userInfo.score)
-                );
                 handleSignUp();
                 userInfo.userExist = true;
             } else {
@@ -61,7 +57,7 @@ const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
 
     const handleSignUp = () => {
         setIsSignedIn(true);
-        dbUtility.GetHighscore().then((highscores) => {
+        Score.GetHighscore().then((highscores) => {
             setWeeklyHighscores(highscores);
         });
     };

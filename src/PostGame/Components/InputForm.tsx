@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import dbUtility from "../Database/dbUtility";
 import { UserContext } from "../../UserContext";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 import { UserHighscoreNumber } from "../types";
+import { ClientFunctions, Score } from "databaseutilities";
 
 type Props = {
     onSignUp: () => void;
@@ -18,7 +18,7 @@ const Input = ({ onSignUp, score }: Props) => {
     const onSubmit = async (values: UserHighscoreNumber) => {
 
         try {
-            const { data, error } = await dbUtility.CheckUserData(
+            const { data, error } = await ClientFunctions.CheckUserData(
                 values.phonenumber,
                 "sdsusers"
             );
@@ -31,7 +31,7 @@ const Input = ({ onSignUp, score }: Props) => {
                 userInfo.userInfo = values.phonenumber
                 localStorage.setItem('userinfo', JSON.stringify(userInfo.userInfo));
 
-                await dbUtility.insertUserData(values.first_name, userInfo.userInfo, score);
+                await ClientFunctions.InsertUser(values.first_name, userInfo.userInfo, score);
                 onSignUp();
                 
                 console.log("Data submitted successfully!");
@@ -40,7 +40,7 @@ const Input = ({ onSignUp, score }: Props) => {
                 
                 userInfo.userInfo = values.phonenumber
                 localStorage.setItem('userinfo', JSON.stringify(userInfo.userInfo));
-                await dbUtility.UpdateScore(values.phonenumber, score)
+                await Score.UpdateScore(values.phonenumber, score)
                 onSignUp();
             }
 
