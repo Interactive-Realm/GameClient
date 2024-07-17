@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import PhaserGame from "./Game/PhaserGame";                     // Game Module
+//import PhaserGame from "./Game/PhaserGame";                     // Game Module
 import IntroPage from "./PreGame/IntroPage";                    // Pre Game Module
 import PostGame from "./PostGame/PostGame";                     // Post Game Module
 // import Highscore from "./PostGame/HighscoreStandAlone";              
@@ -10,6 +10,9 @@ import { UserContext } from "./UserContext";
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 //import { Screen, checkDate } from "basepatterncorecomponents";
 import {Client} from "databaseutilities";
+import CMSLoginPage from "./CMS/LoginPage";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 
 export type Screen = "pregame" | "game" | "postgame" | "CampaignStart" | "CampaignEnd";
 
@@ -22,7 +25,7 @@ function App() {
             break;
 
         case "game":
-            component = <PhaserGame setScreen={setScreen} />;
+            //component = <PhaserGame setScreen={setScreen} />;
             break;
 
         case "postgame":
@@ -94,9 +97,9 @@ function App() {
                 </div>
             </UserContext.Provider>}
         />
-        <Route path="/*" element={<Navigate to='/institutdysten2024' />} />
-        {/* <Route path="/leaderboardmobile" element={<Highscore/>} />
-        <Route path="/leaderboard" element={<HighscoreDesktop/>} />         */}
+        <Route path="/*" element={<Navigate to='/CMS' />} />
+        {<Route path="/CMS" element={<CMSLoginPage/>} />}
+
       </Routes>
       
     </BrowserRouter>
