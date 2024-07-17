@@ -6,7 +6,6 @@ import CampaignEnd from "./BasePatternComponents/CampaignEndComponent";
 import CampaignStart from "./BasePatternComponents/CampaignStartComponent";
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { Screen, checkDate, UserContext  } from "basepatternutilities";
-import { Client } from "databaseutilities";
 
 function App() {
     const [screen, setScreen] = useState<Screen>("pregame");
@@ -38,10 +37,7 @@ function App() {
     useEffect(()=>{
         checkDate(new Date("2024-07-06"), new Date("2024-07-17"));
     },[])
-    
-    console.log("Score Test: " + Client.supabase);
-       
-        
+            
 
     // ------------------- LOCAL STORAGE DEBUG ------------------- //
     //console.log("Localstorage: " + JSON.parse(localStorage.getItem('userinfo')!)); 
