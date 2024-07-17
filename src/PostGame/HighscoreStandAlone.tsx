@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
-import dbUtility from "./Database/dbUtility";
+import { UserTypes, Score } from "databaseutilities";
 import HighscoreList from "./Components/HighscoreList";
-import { UserHighscoreNumber } from "./types";
 
 
 
 function Highscore() {
-    const [weeklyHighscores, setWeeklyHighscores] = useState<UserHighscoreNumber[]>([]);
+    const [weeklyHighscores, setWeeklyHighscores] = useState<UserTypes.UserHighscoreNumber[]>([]);
 
     useEffect(() => {
         console.log("UseEffect Test")
         const interval = setInterval(() => {
 
-            dbUtility.GetHighscore().then((highscores) => {
+            Score.GetHighscore().then((highscores) => {
                 setWeeklyHighscores(highscores);
                 console.log("Test")
             });

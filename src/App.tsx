@@ -2,16 +2,11 @@ import { useState, useContext, useEffect } from "react";
 import PhaserGame from "./Handlers/GameHandler";                     // Game Module
 import IntroPage from "./Handlers/PreGameHandler";                   // Pre Game Module
 import PostGame from "./Handlers/PostGameHandler";                   // Post Game Module
-// import Highscore from "./PostGame/HighscoreStandAlone";              
-// import HighscoreDesktop from "./PostGame/HighscoreStandAloneDesktop";
 import CampaignEnd from "./CampaignEndComponent";
 import CampaignStart from "./CampaignStartComponent";
-import { UserContext } from "./UserContext";
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-//import { Screen, checkDate } from "basepatterncorecomponents";
-import {Client} from "databaseutilities";
-
-export type Screen = "pregame" | "game" | "postgame" | "CampaignStart" | "CampaignEnd";
+import { Screen, checkDate, UserContext  } from "basepatternutilities";
+import { Client } from "databaseutilities";
 
 function App() {
     const [screen, setScreen] = useState<Screen>("pregame");
@@ -39,35 +34,6 @@ function App() {
     }
 
     const userInfo = useContext(UserContext);
-
-    function checkDate(startdate:Date,enddate:Date){
-    
-        const CampaignStartDate = startdate;
-        const CampaignEndDate = new Date(enddate.getFullYear(), enddate.getMonth(), enddate.getDate(), 23, 59);
-        const Today = new Date();
-    
-        console.log(CampaignStartDate)
-        console.log(Today);
-        if(Today > CampaignStartDate && Today < CampaignEndDate)
-            {
-                console.log("Campaign Running");
-                setScreen("pregame");
-            }
-            
-        else if(Today < CampaignStartDate)
-            {
-                console.log("Campaign Not Started Yet");
-                setScreen("CampaignStart");
-            }
-        
-        else if(Today > CampaignEndDate)
-            {
-                console.log("Campaign Ended");
-                setScreen("CampaignEnd");
-    
-            }
-    
-    }
 
     useEffect(()=>{
         checkDate(new Date("2024-07-06"), new Date("2024-07-17"));
