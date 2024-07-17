@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import InputForm from "../PostGame/Components/InputForm"; //Input form component
 import HighscoreList from "../PostGame/Components/HighscoreList";
-import { UserHighscoreNumber } from "../PostGame/types";
 import { Screen, UserContext } from "basepatternutilities"
-import { Score, ClientFunctions} from "databaseutilities";
+import { Score, ClientFunctions, UserTypes} from "databaseutilities";
 
 let isCalled = true;
 
@@ -13,7 +12,7 @@ interface FrontPageProps {
 
 const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
-    const [weeklyHighscores, setWeeklyHighscores] = useState<UserHighscoreNumber[]>([]);
+    const [weeklyHighscores, setWeeklyHighscores] = useState<UserTypes.UserHighscoreNumber[]>([]);
     const userInfo = useContext(UserContext);    
 
     useEffect(() => {
