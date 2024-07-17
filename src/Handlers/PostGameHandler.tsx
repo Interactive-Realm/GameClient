@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import dbUtility from "./Database/dbUtility";
-import InputForm from "./Components/InputForm"; //Input form component
-import HighscoreList from "./Components/HighscoreList";
-import { UserContext } from "./../UserContext"; // Local stored user information
-import { UserHighscoreNumber } from "./types";
-import { Screen } from "basepatternutilities"
-import {Score} from "databaseutilities";
+import InputForm from "../PostGame/Components/InputForm"; //Input form component
+import HighscoreList from "../PostGame/Components/HighscoreList";
+import { Screen, UserContext } from "basepatternutilities"
+import { Score, ClientFunctions, UserTypes} from "databaseutilities";
 
 let isCalled = true;
 
@@ -15,7 +12,7 @@ interface FrontPageProps {
 
 const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
-    const [weeklyHighscores, setWeeklyHighscores] = useState<UserHighscoreNumber[]>([]);
+    const [weeklyHighscores, setWeeklyHighscores] = useState<UserTypes.UserHighscoreNumber[]>([]);
     const userInfo = useContext(UserContext);    
 
     useEffect(() => {
@@ -30,8 +27,8 @@ const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
     const checkUserInfo = async () => {
         if (JSON.parse(localStorage.getItem("userinfo")!) != null) {
             console.log("Local Storage exists: " + JSON.parse(localStorage.getItem("userinfo")!))
-
-            const { data, error } = await dbUtility.CheckUserData(
+            
+            const { data, error } = await ClientFunctions.CheckUserData(
                 JSON.parse(localStorage.getItem("userinfo")!),
                 "sdsusers"
             );

@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "basepatternutilities";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
-import { UserHighscoreNumber } from "../types";
-import { ClientFunctions, Score } from "databaseutilities";
+import { ClientFunctions, Score, UserTypes } from "databaseutilities";
 
 type Props = {
     onSignUp: () => void;
@@ -10,12 +9,12 @@ type Props = {
 };
   
 const Input = ({ onSignUp, score }: Props) => {
-    const { register, handleSubmit, formState: { errors } } = useForm<UserHighscoreNumber>();
+    const { register, handleSubmit, formState: { errors } } = useForm<UserTypes.UserHighscoreNumber>();
     const userInfo = useContext(UserContext)
     
 
     //var [score, setScore] = useState<number>();
-    const onSubmit = async (values: UserHighscoreNumber) => {
+    const onSubmit = async (values: UserTypes.UserHighscoreNumber) => {
 
         try {
             const { data, error } = await ClientFunctions.CheckUserData(
