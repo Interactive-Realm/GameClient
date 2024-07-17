@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Screen } from 'basepatterncorecomponents';
+import React from 'react';
+import { Screen } from 'basepatternutilities';
 
 interface Props {
     setScreen: React.Dispatch<React.SetStateAction<Screen>>;

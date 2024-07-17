@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
-import PhaserGame from "./Game/PhaserGame";                     // Game Module
-import IntroPage from "./PreGame/IntroPage";                    // Pre Game Module
-import PostGame from "./PostGame/PostGame";                     // Post Game Module
+import PhaserGame from "./Handlers/GameHandler";                     // Game Module
+import IntroPage from "./Handlers/PreGameHandler";                   // Pre Game Module
+import PostGame from "./Handlers/PostGameHandler";                   // Post Game Module
 // import Highscore from "./PostGame/HighscoreStandAlone";              
 // import HighscoreDesktop from "./PostGame/HighscoreStandAloneDesktop";
 import CampaignEnd from "./CampaignEndComponent";
