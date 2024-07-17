@@ -48,7 +48,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/institutdysten2024"
+          path="/Campaign"
           element={
             <UserContext.Provider value={userInfo}>
                 <div id="app">
@@ -56,7 +56,7 @@ function App() {
                 </div>
             </UserContext.Provider>}
         />
-        <Route path="/*" element={<Navigate to='/institutdysten2024' />} />
+        <Route path="/*" element={<Navigate to='/Campaign' />} />
         {/* <Route path="/leaderboardmobile" element={<Highscore/>} />
         <Route path="/leaderboard" element={<HighscoreDesktop/>} />         */}
       </Routes>
