@@ -2,8 +2,8 @@ import { useState, useContext, useEffect } from "react";
 import PhaserGame from "./Handlers/GameHandler";                     // Game Module
 import IntroPage from "./Handlers/PreGameHandler";                   // Pre Game Module
 import PostGame from "./Handlers/PostGameHandler";                   // Post Game Module
-import CampaignEnd from "./CampaignEndComponent";
-import CampaignStart from "./CampaignStartComponent";
+import CampaignEnd from "./BasePatternComponents/CampaignEndComponent";
+import CampaignStart from "./BasePatternComponents/CampaignStartComponent";
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { Screen, checkDate, UserContext  } from "basepatternutilities";
 import { Client } from "databaseutilities";
