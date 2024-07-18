@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import HighscoreItem from "./HighscoreElement";
-import dbUtility from "../Database/dbUtility";
-import { UserHighscoreNumber } from "../types";
-import { UserContext } from "../../UserContext";
+import { UserTypes } from "databaseutilities"
+import { UserContext } from "basepatternutilities";
 
 type Props = {
-    highscores: UserHighscoreNumber[];
+    highscores: UserTypes.UserHighscoreNumber[];
     loaduserscore: boolean;
 };
 

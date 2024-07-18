@@ -1,19 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
-import dbUtility from "./Database/dbUtility";
-import { UserHighscoreNumber } from "./types";
+import { UserTypes, Score } from "databaseutilities";
 import HighscoreItem from "./Components/HighscoreElement";
 
 var isCalled = true;
 
 const HighscoreDesktop = () => {
-    const [highscore, setHighscores] = useState<UserHighscoreNumber[]>([]);
+    const [highscore, setHighscores] = useState<UserTypes.UserHighscoreNumber[]>([]);
 
     useEffect(() => {
         console.log("UseEffect Test")
 
         if(isCalled){
             isCalled = false;
-            dbUtility.GetHighscore().then((highscores) => {
+            Score.GetHighscore().then((highscores) => {
                 setHighscores(highscores);
                 console.log(highscores);
                 console.log(highscore);
@@ -22,7 +21,7 @@ const HighscoreDesktop = () => {
 
         const interval = setInterval(() => {
 
-            dbUtility.GetHighscore().then((highscores) => {
+            Score.GetHighscore().then((highscores) => {
                 setHighscores(highscores);
                 console.log(highscore);
             });

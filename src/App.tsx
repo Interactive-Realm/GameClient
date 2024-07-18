@@ -1,20 +1,14 @@
 import { useState, useContext, useEffect } from "react";
-//import PhaserGame from "./Game/PhaserGame";                     // Game Module
-import IntroPage from "./PreGame/IntroPage";                    // Pre Game Module
-import PostGame from "./PostGame/PostGame";                     // Post Game Module
-// import Highscore from "./PostGame/HighscoreStandAlone";              
-// import HighscoreDesktop from "./PostGame/HighscoreStandAloneDesktop";
-import CampaignEnd from "./CampaignEndComponent";
-import CampaignStart from "./CampaignStartComponent";
-import { UserContext } from "./UserContext";
+import PhaserGame from "./Handlers/GameHandler";                     // Game Module
+import IntroPage from "./Handlers/PreGameHandler";                   // Pre Game Module
+import PostGame from "./Handlers/PostGameHandler";                   // Post Game Module
+import CampaignEnd from "./BasePatternComponents/CampaignEndComponent";
+import CampaignStart from "./BasePatternComponents/CampaignStartComponent";
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-//import { Screen, checkDate } from "basepatterncorecomponents";
-import {Client} from "databaseutilities";
 import CMSLoginPage from "./CMS/LoginPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-
-export type Screen = "pregame" | "game" | "postgame" | "CampaignStart" | "CampaignEnd";
+import { Screen, checkDate, UserContext  } from "basepatternutilities";
 
 function App() {
     const [screen, setScreen] = useState<Screen>("pregame");
@@ -43,42 +37,10 @@ function App() {
 
     const userInfo = useContext(UserContext);
 
-    function checkDate(startdate:Date,enddate:Date){
-    
-        const CampaignStartDate = startdate;
-        const CampaignEndDate = new Date(enddate.getFullYear(), enddate.getMonth(), enddate.getDate(), 23, 59);
-        const Today = new Date();
-    
-        console.log(CampaignStartDate)
-        console.log(Today);
-        if(Today > CampaignStartDate && Today < CampaignEndDate)
-            {
-                console.log("Campaign Running");
-                setScreen("pregame");
-            }
-            
-        else if(Today < CampaignStartDate)
-            {
-                console.log("Campaign Not Started Yet");
-                setScreen("CampaignStart");
-            }
-        
-        else if(Today > CampaignEndDate)
-            {
-                console.log("Campaign Ended");
-                setScreen("CampaignEnd");
-    
-            }
-    
-    }
-
     useEffect(()=>{
         checkDate(new Date("2024-07-06"), new Date("2024-07-17"));
     },[])
-    
-    console.log("Score Test: " + Client.supabase);
-       
-        
+            
 
     // ------------------- LOCAL STORAGE DEBUG ------------------- //
     //console.log("Localstorage: " + JSON.parse(localStorage.getItem('userinfo')!)); 
@@ -89,7 +51,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/institutdysten2024"
+          path="/Campaign"
           element={
             <UserContext.Provider value={userInfo}>
                 <div id="app">
@@ -97,9 +59,9 @@ function App() {
                 </div>
             </UserContext.Provider>}
         />
-        <Route path="/*" element={<Navigate to='/CMS' />} />
-        {<Route path="/CMS" element={<CMSLoginPage/>} />}
-
+        <Route path="/*" element={<Navigate to='/Campaign' />} />
+        {/* <Route path="/leaderboardmobile" element={<Highscore/>} />
+        <Route path="/leaderboard" element={<HighscoreDesktop/>} />         */}
       </Routes>
       
     </BrowserRouter>
