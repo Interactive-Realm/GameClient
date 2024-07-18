@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UserTypes, Score } from "databaseutilities";
+import { UserTypes, Score } from "@interactive-realm/databaseutilities";
 import HighscoreItem from "./Components/HighscoreElement";
 
 var isCalled = true;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Screen } from 'basepatternutilities';
+import { Screen } from '@interactive-realm/basepatternutilities';
 
 interface Props {
     setScreen: React.Dispatch<React.SetStateAction<Screen>>;

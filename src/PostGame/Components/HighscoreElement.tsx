@@ -1,8 +1,8 @@
-import { UserHighscore, UserHighscoreNumber } from "../types";
+import { UserTypes } from "@interactive-realm/databaseutilities";
 
 type Props = {
     rank: number;
-    highscore: UserHighscoreNumber;
+    highscore: UserTypes.UserHighscoreNumber;
     cssid: string;
 };
 
@@ -16,7 +16,7 @@ const HighscoreItem = ({ rank, highscore, cssid }: Props) => {
             <span id="highscore_element2">
                 <span className="highscore_element3">
                     <span id="hsrank">{rank} </span>
-                    <span className="hsname" id={cssid}>{highscore.name} </span>
+                    <span className="hsname" id={cssid}>{highscore.first_name} </span>
                 </span>
                 
                 <span id="hsscore">{formatScore(highscore.score)}</span>
