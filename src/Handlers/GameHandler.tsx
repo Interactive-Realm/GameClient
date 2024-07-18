@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState, useContext } from 'react';
 import StartGame from '../Game/main';
 import { EventBus } from '../Game/EventBus';
 import GameOver from '../Game/Scenes/GameOver';
-import { Screen, UserContext } from 'basepatternutilities';
+import { Screen, UserContext } from '@interactive-realm/basepatternutilities';
 
 interface Props {
     setScreen: React.Dispatch<React.SetStateAction<Screen>>;

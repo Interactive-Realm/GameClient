@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import InputForm from "../PostGame/Components/InputForm"; //Input form component
 import HighscoreList from "../PostGame/Components/HighscoreList";
-import { Screen, UserContext } from "basepatternutilities"
-import { Score, ClientFunctions, UserTypes} from "databaseutilities";
+import { Screen, UserContext } from "@interactive-realm/basepatternutilities"
+import { Score, ClientFunctions, UserTypes} from "@interactive-realm/databaseutilities";
 
 let isCalled = true;
 

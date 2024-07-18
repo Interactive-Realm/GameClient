@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "basepatternutilities";
+import { UserContext } from "@interactive-realm/basepatternutilities";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
-import { ClientFunctions, Score, UserTypes } from "databaseutilities";
+import { ClientFunctions, Score, UserTypes } from "@interactive-realm/databaseutilities";
 
 type Props = {
     onSignUp: () => void;
