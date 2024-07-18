@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import CMSLoginPage from "./CMS/LoginPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-import { Screen, checkDate, UserContext  } from "basepatternutilities";
+import { Screen, checkDate, UserContext  } from "@interactive-realm/basepatternutilities";
 
 function App() {
     const [screen, setScreen] = useState<Screen>("pregame");
@@ -19,7 +19,7 @@ function App() {
             break;
 
         case "game":
-            //component = <PhaserGame setScreen={setScreen} />;
+            component = <PhaserGame setScreen={setScreen} />;
             break;
 
         case "postgame":
