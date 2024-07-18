@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import PhaserGame from "./Handlers/GameHandler";                     // Game Module
+//import PhaserGame from "./Handlers/GameHandler";                     // Game Module
 import IntroPage from "./Handlers/PreGameHandler";                   // Pre Game Module
 import PostGame from "./Handlers/PostGameHandler";                   // Post Game Module
 import CampaignEnd from "./BasePatternComponents/CampaignEndComponent";
@@ -19,7 +19,7 @@ function App() {
             break;
 
         case "game":
-            component = <PhaserGame setScreen={setScreen} />;
+            //component = <PhaserGame setScreen={setScreen} />;
             break;
 
         case "postgame":
@@ -59,9 +59,9 @@ function App() {
                 </div>
             </UserContext.Provider>}
         />
-        <Route path="/*" element={<Navigate to='/Campaign' />} />
-        {/* <Route path="/leaderboardmobile" element={<Highscore/>} />
-        <Route path="/leaderboard" element={<HighscoreDesktop/>} />         */}
+
+        <Route path="/*" element={<Navigate to='/CMS' />} />
+        {<Route path="/CMS" element={<CMSLoginPage/>} />}
       </Routes>
       
     </BrowserRouter>
