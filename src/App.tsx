@@ -6,6 +6,7 @@ import CampaignEnd from "./BasePatternComponents/CampaignEndComponent";
 import CampaignStart from "./BasePatternComponents/CampaignStartComponent";
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import CMSLoginPage from "./CMS/LoginPage";
+import Dashboard from "./CMS/Dashboard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { Screen, checkDate, UserContext  } from "@interactive-realm/basepatternutilities";
@@ -38,7 +39,7 @@ function App() {
     const userInfo = useContext(UserContext);
 
     useEffect(()=>{
-        checkDate(new Date("2024-07-06"), new Date("2024-07-17"));
+        //checkDate(new Date("2024-07-06"), new Date("2024-07-17"));
     },[])
             
 
@@ -61,7 +62,7 @@ function App() {
         />
 
         <Route path="/*" element={<Navigate to='/CMS' />} />
-        {<Route path="/CMS" element={<CMSLoginPage/>} />}
+        {<Route path="/CMS" element={<Dashboard/>} />}
       </Routes>
       
     </BrowserRouter>

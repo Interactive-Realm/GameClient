@@ -4,3 +4,49 @@
 .mainFont {
     font-family: Jost;
 }
+
+#realmLogoDiv {
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    padding-top: 10vh;
+    text-align: center;
+}
+#realmLogo {
+    width: 20%;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.smallFontSize {
+    font-size: 12px;
+}
+
+.darkButton {
+    background-color: #141729;
+    color: #FFFFFF;
+
+    align-items: center; /* Vertically center the content */
+    margin: auto; /* Center the button horizontally within its container */
+    display: flex;
+    justify-content: center;
+    padding: 10px 155px;
+
+    border: 1px solid #FFFFFF;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
