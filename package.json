@@ -1,6 +1,6 @@
 {
     "name": "basepattern",
-    "description": "A base Pattern for the Campaign Game Framework.",
+    "description": "A base pattern for the Campaign Game Framework.",
     "version": "1.0.1",
     "repository": {
         "type": "git",
