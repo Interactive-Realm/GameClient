@@ -1,6 +1,7 @@
 import React from "react"; 
 import { Navbar, Container, Nav } from 'react-bootstrap';
 
+// Navbar
 const Dashboard = () => {
     return (
         <div className="navbar-wrapper">
@@ -13,8 +14,6 @@ const Dashboard = () => {
                 </Container>
             </Navbar>
         </div>
-
-        
       );
 }
 
