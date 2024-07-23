@@ -13,7 +13,6 @@ import { Screen, checkDate, UserContext } from "@interactive-realm/basepatternut
 import CMSLoginPage from "./CMS/LoginPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-import { Screen, checkDate, UserContext  } from "@interactive-realm/basepatternutilities";
 
 
 function App() {
@@ -44,7 +43,7 @@ function App() {
     const userInfo = useContext(UserContext);
 
     useEffect(()=>{
-        checkDate(new Date("2024-07-06"), new Date("2024-07-17"));
+        checkDate(new Date("2024-07-06"), new Date("2024-07-17"), setScreen);
     },[])
             
 
