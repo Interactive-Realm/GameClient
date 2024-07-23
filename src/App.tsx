@@ -28,7 +28,7 @@ function App() {
             break;
 
         case "postgame":
-            component = <PostGame setScreen={setScreen}/>;
+            component = <PostGame setApplicationState={setScreen}/>;
             break;
 
         case "CampaignStart":
