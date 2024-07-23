@@ -49,4 +49,28 @@ a:link {
 
 a:hover {
     text-decoration: underline;
-}
+}  
+  .navbar-wrapper {
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+  }
+  
+  .custom-navbar {
+    width: 200px; /* Adjust this width as needed */
+    padding-top: 20px; /* Optional: Add some padding at the top */
+    background-color: #141729;
+  }
+  
+  .custom-navbar .nav-link {
+    color: #EFF1F5;
+    padding: 10px 20px; /* Adjust padding for better spacing */
+  }
+  
+  .custom-navbar .nav-link:hover {
+    background-color: #3E4259; /* Optional: Add hover effect */
+    text-decoration: none;
+  }
+
+  .custom-navbar .nav {
+    width: 100%; /* Ensure the nav fills the width of the custom-navbar */
+  }
