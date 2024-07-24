@@ -1,6 +1,6 @@
 {
     "name": "basepattern",
-    "description": "A base Pattern for the Campaign Game Framework.",
+    "description": "A base pattern for the Campaign Game Framework.",
     "version": "1.0.1",
     "repository": {
         "type": "git",
@@ -25,7 +25,7 @@
         "build": "vite build --config vite/config.prod.mjs"
     },
     "dependencies": {
-        "@interactive-realm/basepatternutilities": "^0.3.0",
+        "@interactive-realm/basepatternutilities": "^0.4.0",
         "@interactive-realm/databaseutilities": "^1.0.2",
         "@supabase/supabase-js": "^2.44.2",
         "bootstrap": "^5.3.3",
