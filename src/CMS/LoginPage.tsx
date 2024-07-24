@@ -8,15 +8,15 @@ import Image from 'react-bootstrap/Image';
 // Login Page
 const CMSLoginPage = () => {
 
-    return (
+    return (        
         <div>
-        <div id="realmLogoDiv">
-            <Image src={RealmLogo} id="realmLogo"></Image>
-        </div>
-        
-        <div className="d-flex vh-100">
-            <Container className="flex-column justify-content-center">
+            <Container>
                 <Form className="mainFont">
+                    <Row className="justify-content-md-center alignCenter">
+                        <Col sx={6} md={4}>
+                            <Image src={RealmLogo} id="realmLogo"></Image>
+                        </Col>
+                    </Row>
                     <Row className="justify-content-md-center">
                         <Col sx={6} md={4}>
                         <div className='centerText'>Log in to see your campaign's dashboard</div>
@@ -64,7 +64,6 @@ const CMSLoginPage = () => {
                 </Form>
                 
             </Container>
-        </div>
         </div>
     );
 }

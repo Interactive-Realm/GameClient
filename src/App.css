@@ -13,10 +13,12 @@
     padding-bottom: 10vh; /* Bottom spacing */
 }
 #realmLogo {
-    width: 20%; /* Image size */
+    padding-top: 20%;
+    width: 80%; /* Image size */
+    padding-bottom: 10%;
 }
 
-.centerText {
+.alignCenter {
     text-align: center;
 }
 

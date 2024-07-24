@@ -62,7 +62,7 @@ function App() {
         />
 
         <Route path="/*" element={<Navigate to='/CMS' />} />
-        {<Route path="/CMS" element={<CMSLoginPage/>} />}
+        {<Route path="/CMS" element={<Dashboard/>} />}
       </Routes>
       
     </BrowserRouter>

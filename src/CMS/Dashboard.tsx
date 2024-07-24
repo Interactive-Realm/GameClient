@@ -1,5 +1,6 @@
 import React from "react"; 
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import EngagementStats from "./EngagementStatistics";
 
 // Navbar
 const Dashboard = () => {
@@ -13,6 +14,9 @@ const Dashboard = () => {
                 </Nav>
                 </Container>
             </Navbar>
+            <div className="justify-content-md-center">
+                <EngagementStats></EngagementStats>
+            </div>
         </div>
       );
 }
