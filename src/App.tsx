@@ -29,7 +29,7 @@ function App() {
             break;
 
         case "postgame":
-            component = <PostGame setScreen={setScreen}/>;
+            component = <PostGame setApplicationState={setScreen}/>;
             break;
 
         case "CampaignStart":
@@ -44,7 +44,7 @@ function App() {
     const userInfo = useContext(UserContext);
 
     useEffect(()=>{
-        //checkDate(new Date("2024-07-06"), new Date("2024-07-17"));
+        checkDate(new Date("2024-07-06"), new Date("2024-07-17"), setScreen);
     },[])
             
 

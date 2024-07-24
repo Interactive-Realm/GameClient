@@ -7,10 +7,10 @@ import { Score, ClientFunctions, UserTypes} from "@interactive-realm/databaseuti
 let isCalled = true;
 
 interface FrontPageProps {
-    setScreen: React.Dispatch<React.SetStateAction<Screen>>;
+    setApplicationState: React.Dispatch<React.SetStateAction<Screen>>;
 }
 
-const PostGame: React.FC<FrontPageProps> = ({ setScreen }) => {
+const PostGame: React.FC<FrontPageProps> = ({ setApplicationState: setScreen }) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
     const [weeklyHighscores, setWeeklyHighscores] = useState<UserTypes.UserHighscoreNumber[]>([]);
     const userInfo = useContext(UserContext);    
