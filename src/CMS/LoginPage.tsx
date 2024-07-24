@@ -7,8 +7,7 @@ import Image from 'react-bootstrap/Image';
 import { useState, useEffect } from 'react';
 import { Client, CMS } from '@interactive-realm/databaseutilities';
 
-
-// Creating the frontpage demanding a boolean parameter of a button click 
+// Login Page
 const CMSLoginPage = () => {
 
     const [email, setEmail] = useState('');
@@ -22,16 +21,30 @@ const CMSLoginPage = () => {
         
     }
 
-      return (
+    return (        
         <div>
-            <div id="realmLogoDiv">
-                <Image src={RealmLogo} id="realmLogo"></Image>
-            </div>
-        
-            <div className="d-flex vh-100">
-                <Container className="flex-column justify-content-center">
+            <Container>
+                <Form className="mainFont" onSubmit={handleSubmit}>
+                    <Row className="justify-content-md-center alignCenter">
+                        <Col sx={6} md={4}>
+                            <Image src={RealmLogo} id="realmLogo"></Image>
+                        </Col>
+                    </Row>
+                    <Row className="justify-content-md-center">
+                        <Col sx={6} md={4}>
+                        <div className='centerText'>Log in to see your campaign's dashboard</div>
+                        <br/>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Control size="sm" type="email" placeholder="Email" /> {/* email input */}                           
+                            </Form.Group> 
+                        </Col>
+                    </Row>
+                    <Row className="justify-content-md-center">
+                        <Col sx={6} md={4}>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                <Form.Control size="sm" type="name" placeholder="Password" /> {/* password input */}
+                            </Form.Group>
                     <Form className="mainFont" onSubmit={handleSubmit}>
-                        <Row className="justify-content-md-center">
                             
                             <Col sx={6} md={4}>
                             <div className='centerText'>Log in to see your campaign's dashboard</div>
@@ -94,8 +107,7 @@ const CMSLoginPage = () => {
                 </Container>
             </div>
         </div>
-      )
-        
-  }
+    );
+}
 
 export default CMSLoginPage;
