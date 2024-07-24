@@ -25,68 +25,60 @@ const CMSLoginPage = () => {
         <div>
             <Container>
                 <Form className="mainFont" onSubmit={handleSubmit}>
+                    
+                    {/* LOGO ROW */}
                     <Row className="justify-content-md-center alignCenter">
                         <Col sx={6} md={4}>
                             <Image src={RealmLogo} id="realmLogo"></Image>
                         </Col>
                     </Row>
+
+                    {/* EMAIL ROW */}
                     <Row className="justify-content-md-center">
                         <Col sx={6} md={4}>
-                        <div className='centerText'>Log in to see your campaign's dashboard</div>
+                        <div className='alignCenter'>Log in to see your campaign's dashboard</div>
                         <br/>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                <Form.Control size="sm" type="email" placeholder="Email" /> {/* email input */}                           
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput3">
+                                <Form.Control 
+                                    size="sm" 
+                                    type="email" 
+                                    placeholder="Enter email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
                             </Form.Group> 
                         </Col>
                     </Row>
+
+                    {/* PASSWORD ROW */}
                     <Row className="justify-content-md-center">
                         <Col sx={6} md={4}>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                <Form.Control size="sm" type="name" placeholder="Password" /> {/* password input */}
-                            </Form.Group>
-                    <Form className="mainFont" onSubmit={handleSubmit}>
-                            
-                            <Col sx={6} md={4}>
-                            <div className='centerText'>Log in to see your campaign's dashboard</div>
-                            <br/>
-                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                    <Form.Control 
-                                        size="sm" 
-                                        type="email" 
-                                        placeholder="Enter email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                </Form.Group> 
-                            </Col>
-                        </Row>
-                        <Row className="justify-content-md-center">
-                            <Col sx={6} md={4}>
-                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-                                    <Form.Control 
-                                        size="sm" 
-                                        type="password" 
-                                        placeholder="Password"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                </Form.Group>
-                                
-                            </Col>
-                        </Row>
-                        <Row className="justify-content-md-center">
-                            <Col sx={6} md={4}>
-                            <Form>
-                                    <Form.Check
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
+                                <Form.Control 
+                                    size="sm" 
+                                    type="password" 
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </Form.Group>                                 
+                        </Col>
+                    </Row>
+
+                    {/* Remember Me ROW */}
+                    <Row className="justify-content-md-center">
+                        <Col sx={6} md={4}>
+                                <Form.Check
                                     className='smallFontSize'
-                                        type="checkbox"
-                                        label="Remember Me"
-                                        name="checkboxGroup"
-                                        id="checkbox"
-                                    />
-                                </Form> 
-                            </Col>
-                        </Row>
+                                    type="checkbox"
+                                    label="Remember Me"
+                                    name="checkboxGroup"
+                                    id="checkbox"
+                                />
+                        </Col>
+                    </Row>
+
+                    {/* Submit Button ROW */}
                         <Row className="justify-content-md-center">
                             <Col sx={6} md={4}>
                                 <button className='darkButton' type="submit">
@@ -94,6 +86,8 @@ const CMSLoginPage = () => {
                                 </button>
                             </Col>
                         </Row>
+
+                        {/* Forgot Password Row */}
                         <Row className="justify-content-md-center">
                             <Col sx={6} md={4}>
                             <div className="smallFontSize alignRight">
@@ -106,7 +100,6 @@ const CMSLoginPage = () => {
                     
                 </Container>
             </div>
-        </div>
     );
 }
 
