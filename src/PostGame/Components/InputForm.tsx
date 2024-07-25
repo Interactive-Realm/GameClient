@@ -2,6 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "@interactive-realm/basepatternutilities";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 import { ClientFunctions, Score, UserTypes } from "@interactive-realm/databaseutilities";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { Form } from 'react-bootstrap';
 
 type Props = {
     onSignUp: () => void;
@@ -53,8 +57,11 @@ const Input = ({ onSignUp, score }: Props) => {
     };
 
     return (
-        <div id="inputform">
-            <h2 id="subtitle2"> SIGN UP</h2>
+
+        
+        <div className="containerScreenCenter mainFont">
+            <div>
+            <h2 className="largeFontSize alignCenter"> SIGN UP</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="name" >
                    Display Name
@@ -63,7 +70,7 @@ const Input = ({ onSignUp, score }: Props) => {
                 {errors.first_name && (
                 <p id="highscore_element">You must submit a valid name </p>
                 )}
-    
+                
                 <label htmlFor="e-mail">
                     Phone Number
                 </label>
@@ -74,8 +81,10 @@ const Input = ({ onSignUp, score }: Props) => {
                 <p id="highscore_element">You Must submit a Danish phone number</p>
                 )}
                 <input type="submit" value="Proceed" className="buttonwhitesmall"/>
-            </form>   
-            </div>            
+            </form> 
+            </div>
+              
+        </div>            
     );
 };
 

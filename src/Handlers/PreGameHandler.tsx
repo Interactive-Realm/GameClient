@@ -8,17 +8,15 @@ interface Props {
 const FrontPage: React.FC<Props> = ({ setScreen }) => {
 
     return (
-        <div id="app">
-            
-            
-             <div className="headline">
-                Intro Page
-            </div>
-            
-            <div className='container'>
-                <button className='buttonblack' onClick={() => setScreen("game")}>Ready?</button>
-            </div>
-        </div>
+
+            <div className="containerScreenCenter">
+                <div>
+                    <div className="alignCenter largePaddingBottom mainFont largeFontSize">
+                    Intro Page
+                    </div>
+                    <button className='darkButton' onClick={() => setScreen("game")}>Ready?</button>
+                </div>
+           </div>
     );
 }
 

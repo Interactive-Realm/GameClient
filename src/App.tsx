@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
-//import PhaserGame from "./Handlers/GameHandler";                     // Game Module
+import PhaserGame from "./Handlers/GameHandler";                     // Game Module
 import IntroPage from "./Handlers/PreGameHandler";                   // Pre Game Module
 import PostGame from "./Handlers/PostGameHandler";                   // Post Game Module
 import CampaignEnd from "./BasePatternComponents/CampaignEndComponent";
@@ -22,7 +22,7 @@ function App() {
             break;
 
         case "game":
-            //component = <PhaserGame setScreen={setScreen} />;
+            component = <PhaserGame setScreen={setScreen} />;
             break;
 
         case "postgame":
@@ -41,7 +41,7 @@ function App() {
     const userInfo = useContext(UserContext);
 
     useEffect(()=>{
-        checkDate(new Date("2024-07-06"), new Date("2024-07-17"), setScreen);
+        checkDate(new Date("2024-07-06"), new Date("2024-07-26"), setScreen);
     },[])
             
 
@@ -63,7 +63,7 @@ function App() {
             </UserContext.Provider>}
         />
 
-        <Route path="/*" element={<Navigate to='/CMS' />} />
+        <Route path="/*" element={<Navigate to='/campaign' />} />
         {<Route path="/CMS" element={<CMSLoginPage/>} />}
       </Routes>
       
