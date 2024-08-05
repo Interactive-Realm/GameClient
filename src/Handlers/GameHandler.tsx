@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState, useContext } from 'react';
-import StartGame from '../Game/main';
-import { EventBus } from '../Game/EventBus';
-import GameOver from '../Game/scenes/GameOver';
+import { SoapboxStart, OceanStart, FlappyStart } from '@interactive-realm/phasergamelibrary';
+import { EventBus } from '@interactive-realm/phasergamelibrary';
+import GameOver from '@interactive-realm/phasergamelibrary';
 import { Screen, UserContext } from '@interactive-realm/basepatternutilities';
 
 interface Props {
@@ -18,7 +18,7 @@ const PhaserGame: React.FC<Props> = ({ setScreen }) =>
     {
         if (game.current === null && gameEnd == false)
         {
-            game.current = StartGame("game-container"); // Starts the Phaser Game
+            game.current = FlappyStart("game-container", false); // Starts the Phaser Game
             console.log("NewGame");
         }
 
@@ -48,14 +48,14 @@ const PhaserGame: React.FC<Props> = ({ setScreen }) =>
     });
 
     return (
-        <>
-        {gameEnd? (
-            <GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
-        ):(
+        // <>
+        // {gameEnd? (
+        //     <GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
+        // ):(
             <div id="game-container"></div> // Else show div container for phaser game
-        )}
+        // )}
         
-        </>
+        // </>
     );
 
 };

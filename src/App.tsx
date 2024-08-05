@@ -41,8 +41,8 @@ function App() {
     const userInfo = useContext(UserContext);
 
     useEffect(()=>{
-        checkDate(new Date("2024-07-06"), new Date("2024-07-26"), setScreen);
-    },[])
+        checkDate(new Date("2024-07-06"), new Date("2024-08-10"), setScreen);
+    },[]);
             
 
     // ------------------- LOCAL STORAGE DEBUG ------------------- //
