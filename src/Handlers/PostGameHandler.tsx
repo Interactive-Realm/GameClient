@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
-import InputForm from "../PostGame/Components/InputForm"; //Input form component
+import InputForm from "../PostGame/Components/InputForm";                               //Input form component
 import HighscoreList from "../PostGame/Components/HighscoreList";
-import { Screen, UserContext } from "@interactive-realm/basepatternutilities"
+import { Screen, UserContext } from "@interactive-realm/basepatternutilities"           
 import { Score, ClientFunctions, UserTypes} from "@interactive-realm/databaseutilities";
 
 let isCalled = true;
 
-interface FrontPageProps {
+interface Props {
     setApplicationState: React.Dispatch<React.SetStateAction<Screen>>;
 }
 
-const PostGame: React.FC<FrontPageProps> = ({ setApplicationState: setScreen }) => {
+const PostGameHandler: React.FC<Props> = ({ setApplicationState: setScreen }) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
     const [weeklyHighscores, setWeeklyHighscores] = useState<UserTypes.UserHighscoreNumber[]>([]);
     const userInfo = useContext(UserContext);    
@@ -92,4 +92,4 @@ const PostGame: React.FC<FrontPageProps> = ({ setApplicationState: setScreen }) 
     );
 };
 
-export default PostGame;
+export default PostGameHandler;
