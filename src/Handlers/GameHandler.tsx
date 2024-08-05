@@ -1,14 +1,14 @@
 import { useLayoutEffect, useRef, useState, useContext } from 'react';
 import StartGame from '../Game/main';
 import { EventBus } from '../Game/EventBus';
-import GameOver from '../Game/scenes/GameOver';
+//import GameOver from '../Game/scenes/GameOver';
 import { Screen, UserContext } from '@interactive-realm/basepatternutilities';
 
 interface Props {
     setScreen: React.Dispatch<React.SetStateAction<Screen>>;
 }
 
-const PhaserGame: React.FC<Props> = ({ setScreen }) => 
+const GameHandler: React.FC<Props> = ({ setScreen }) => 
 {
     const game = useRef<Phaser.Game | null>(null!);
     const [gameEnd, setGameEnd] = useState(false);
@@ -16,6 +16,7 @@ const PhaserGame: React.FC<Props> = ({ setScreen }) =>
 
     useLayoutEffect(() =>
     {
+        // Needs the gameEnd boolean or it will create a duplicate game when it reaches the GameOver Screen
         if (game.current === null && gameEnd == false)
         {
             game.current = StartGame("game-container"); // Starts the Phaser Game
@@ -24,6 +25,7 @@ const PhaserGame: React.FC<Props> = ({ setScreen }) =>
 
         return () =>
         {
+            // If a game exist and the game has ended destroy the game and set current game to null
             if (game.current && gameEnd == true)
             {
                 console.log("Game Current return: " + game.current)
@@ -50,7 +52,8 @@ const PhaserGame: React.FC<Props> = ({ setScreen }) =>
     return (
         <>
         {gameEnd? (
-            <GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
+            <></>
+            //<GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
         ):(
             <div id="game-container"></div> // Else show div container for phaser game
         )}
@@ -60,4 +63,4 @@ const PhaserGame: React.FC<Props> = ({ setScreen }) =>
 
 };
 
-export default PhaserGame;
+export default GameHandler;

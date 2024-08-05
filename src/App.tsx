@@ -1,47 +1,61 @@
-import { useState, useContext, useEffect } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { useState, useContext, useEffect } from "react";                                    // React Functions Import
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';                  // React 
 
-import PhaserGame from "./Handlers/GameHandler";                     // Game Module
-import IntroPage from "./Handlers/PreGameHandler";                   // Pre Game Module
-import PostGame from "./Handlers/PostGameHandler";                   // Post Game Module
-import CampaignEnd from "./BasePatternComponents/CampaignEndComponent";
-import CampaignStart from "./BasePatternComponents/CampaignStartComponent";
-import { Screen, checkDate, UserContext } from "@interactive-realm/basepatternutilities";
-import CMSLoginPage from "./CMS/LoginPage";
-import Dashboard from "./CMS/Dashboard";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
+import GameHandler from "./Handlers/GameHandler";                                           // Game Handler
+import PreGameHandler from "./Handlers/PreGameHandler";                                     // Pre Game Handler
+import PostGameHandler from "./Handlers/PostGameHandler";                                   // Post Game Handler
+
+import CampaignEnd from "./BasePatternComponents/CampaignEndComponent";                     // Import Campaign has ended page
+import CampaignStart from "./BasePatternComponents/CampaignStartComponent";                 // Import Campaign hasn't started yet page
+
+import { Screen, checkDate, UserContext } from "@interactive-realm/basepatternutilities";   // BasePatternUtilities Functions Import
+
+import CMSLoginPage from "./CMS/LoginPage";                                                 // CMS Login Page
+import Dashboard from "./CMS/Dashboard";                                                    // CMS Dashboard
+
+import 'bootstrap/dist/css/bootstrap.min.css';                                              // Bootstrap CSS
+import './App.css'                                                                          // Custom CSS 
 
 
 function App() {
-    const [screen, setScreen] = useState<Screen>('pregame');
-    let component;
+    const [screen, setScreen] = useState<Screen>('pregame'); // Set Initial Screen
+
+    let component; // React Render Component
+
     switch (screen) {
+
+        // Switch to Pre Game Page
         case "pregame":
-            component = <IntroPage setScreen={setScreen} />;
+            component = <PreGameHandler setScreen={setScreen} />;
             break;
 
+        // Switch to Game Page
         case "game":
-            component = <PhaserGame setScreen={setScreen} />;
+            component = <GameHandler setScreen={setScreen} />;
             break;
 
+        // Switch to Post Game Page
         case "postgame":
-            component = <PostGame setApplicationState={setScreen}/>;
+            component = <PostGameHandler setApplicationState={setScreen}/>;
             break;
-
+        
+        // Switch to Campaign Not Yet Started Page
         case "CampaignStart":
-            component = <CampaignStart/>;
+            component = <CampaignStart />;
             break;
 
+        // Switch to Campaign has ended Page
         case "CampaignEnd":
             component = <CampaignEnd />;
             break;
     }
 
-    const userInfo = useContext(UserContext);
+    // Used to save data locally in the browser session (Data will disappear when page is refreshed, EG. by pressing F5)
+    const userInfo = useContext(UserContext); 
 
+    // Campaign Runtime checker
     useEffect(()=>{
-        checkDate(new Date("2024-07-06"), new Date("2024-07-26"), setScreen);
+        checkDate(new Date("2024-08-06"), new Date("2024-07-26"), setScreen);
     },[])
             
 
@@ -49,26 +63,26 @@ function App() {
     //console.log("Localstorage: " + JSON.parse(localStorage.getItem('userinfo')!)); 
 
     // ----- The following is the components being rendered ----- //
-    return (
-       
+    return (      
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/Campaign"
-          element={
-            <UserContext.Provider value={userInfo}>
-                <div id="app">
-                    {component}
-                </div>
-            </UserContext.Provider>}
-        />
+        <Routes>
+            {/* Main route for campaign game */}
+            <Route
+            path="/Campaign"
+            element={
+                <UserContext.Provider value={userInfo}>
+                    <div id="app">
+                        {component}
+                    </div>
+                </UserContext.Provider>}
+            />
+            {/* Reroute all paths to the main campaign route */}
+            <Route path="/*" element={<Navigate to='/campaign' />} /> 
 
-        <Route path="/*" element={<Navigate to='/campaign' />} />
-        {<Route path="/CMS" element={<CMSLoginPage/>} />}
-      </Routes>
-      
-    </BrowserRouter>
-        
+            {/* Reroute all paths to the main campaign route */}
+            {<Route path="/CMS" element={<CMSLoginPage/>} />}
+        </Routes>      
+    </BrowserRouter>        
     );
 }
 

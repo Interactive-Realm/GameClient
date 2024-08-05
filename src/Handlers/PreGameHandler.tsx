@@ -2,10 +2,10 @@ import React from 'react';
 import { Screen } from '@interactive-realm/basepatternutilities';
 
 interface Props {
-    setScreen: React.Dispatch<React.SetStateAction<Screen>>;
+    setScreen: React.Dispatch<React.SetStateAction<Screen>>; // Used to switch state of the application (Pregame, Game, Postgame etc..)
 }
 // Creating the frontpage demanding a boolean parameter of a button click 
-const FrontPage: React.FC<Props> = ({ setScreen }) => {
+const PreGameHandler: React.FC<Props> = ({ setScreen }) => {
 
     return (
 
@@ -20,4 +20,4 @@ const FrontPage: React.FC<Props> = ({ setScreen }) => {
     );
 }
 
-export default FrontPage;
+export default PreGameHandler;
