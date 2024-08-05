@@ -7,7 +7,7 @@ export default function CampaignEnd() {
     return (
         <div>            
             
-             <div className="headline">
+             <div className="headline containerScreenCenter mainFont">
                 Campaign Has Ended
             </div>           
 
