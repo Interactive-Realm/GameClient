@@ -55,11 +55,12 @@ function App() {
 
     // Campaign Runtime checker
     useEffect(()=>{
-        checkDate(new Date("2024-08-06"), new Date("2024-07-26"), setScreen);
+        checkDate(new Date("2024-08-06"), new Date("2024-08-26"), setScreen);
     },[])
             
 
     // ------------------- LOCAL STORAGE DEBUG ------------------- //
+    // Keep this for now! Currently there are two options for local storage: LocalStorage and UserContext, LocalStorage data persists on page reload and UserContext does not.
     //console.log("Localstorage: " + JSON.parse(localStorage.getItem('userinfo')!)); 
 
     // ----- The following is the components being rendered ----- //
@@ -80,7 +81,7 @@ function App() {
             <Route path="/*" element={<Navigate to='/campaign' />} /> 
 
             {/* Reroute all paths to the main campaign route */}
-            {<Route path="/CMS" element={<CMSLoginPage/>} />}
+            <Route path="/CMS" element={<CMSLoginPage/>} />
         </Routes>      
     </BrowserRouter>        
     );

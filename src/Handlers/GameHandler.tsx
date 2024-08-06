@@ -1,18 +1,18 @@
 import { useLayoutEffect, useRef, useState, useContext } from 'react';
 import StartGame from '../Game/main';
 import { EventBus } from '../Game/EventBus';
-//import GameOver from '../Game/scenes/GameOver';
+import GameOver from '../Game/Scenes/GameOver';
 import { Screen, UserContext } from '@interactive-realm/basepatternutilities';
 
 interface Props {
-    setScreen: React.Dispatch<React.SetStateAction<Screen>>;
+    setScreen: React.Dispatch<React.SetStateAction<Screen>>; // Used to switch state of the application (Pregame, Game, Postgame etc..)
 }
 
 const GameHandler: React.FC<Props> = ({ setScreen }) => 
 {
-    const game = useRef<Phaser.Game | null>(null!);
-    const [gameEnd, setGameEnd] = useState(false);
-    const userInfo = useContext(UserContext);
+    const game = useRef<Phaser.Game | null>(null!);  // Reference to the Phaser Game
+    const [gameEnd, setGameEnd] = useState(false); // Used to identify if a game has ended
+    const userInfo = useContext(UserContext); // User context is used to save score locally
 
     useLayoutEffect(() =>
     {
@@ -50,15 +50,13 @@ const GameHandler: React.FC<Props> = ({ setScreen }) =>
     });
 
     return (
-        <>
-        {gameEnd? (
-            <></>
-            //<GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
-        ):(
-            <div id="game-container"></div> // Else show div container for phaser game
-        )}
-        
-        </>
+        <div id="GameHandler">
+            {gameEnd? (
+                <GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
+            ):(
+                <div id="game-container"></div> // Else show div container for phaser game
+            )}        
+        </div>
     );
 
 };

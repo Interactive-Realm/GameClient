@@ -7,7 +7,7 @@ import { Score, ClientFunctions, UserTypes} from "@interactive-realm/databaseuti
 let isCalled = true;
 
 interface Props {
-    setApplicationState: React.Dispatch<React.SetStateAction<Screen>>;
+    setApplicationState: React.Dispatch<React.SetStateAction<Screen>>; // Used to switch state of the application (Pregame, Game, Postgame etc..)
 }
 
 const PostGameHandler: React.FC<Props> = ({ setApplicationState: setScreen }) => {
@@ -60,7 +60,7 @@ const PostGameHandler: React.FC<Props> = ({ setApplicationState: setScreen }) =>
     };
 
     return (
-        <div>
+        <div id="PostGameHandler">
 
                 {isSignedIn ? (
                     <>
