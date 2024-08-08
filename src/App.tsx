@@ -22,7 +22,7 @@ function App() {
             break;
 
         case "game":
-            //component = <PhaserGame setScreen={setScreen} />;
+            component = <PhaserGame setScreen={setScreen} />;
             break;
 
         case "postgame":
@@ -63,7 +63,7 @@ function App() {
             </UserContext.Provider>}
         />
 
-        <Route path="/*" element={<Navigate to='/CMS' />} />
+        <Route path="/*" element={<Navigate to='/campaign' />} />
         {<Route path="/CMS" element={<CMSLoginPage/>} />}
       </Routes>
       
