@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState, useContext } from 'react';
 import StartGame from '../Game/main';
 import { EventBus } from '../Game/EventBus';
-import GameOver from '../Game/Scenes/GameOver';
+import GameOver from '../BasePatternComponents/GameOver';
 import { Screen, UserContext } from '@interactive-realm/basepatternutilities';
 
 interface Props {
