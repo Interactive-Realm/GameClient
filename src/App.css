@@ -34,9 +34,50 @@
     font-size: 12px;
 }
 
+.mediumFontSize {
+    font-size: 20px;
+}
+
+.largeFontSize {
+    font-size: 32px;
+}
+
+.smallPaddingTop {
+    padding-top: 10px;
+}
+
+.smallPaddingBottom {
+    padding-bottom: 10px;
+}
+
+.mediumPaddingTop {
+    padding-top: 30px;
+}
+
+.mediumPaddingBottom {
+    padding-bottom: 30px;
+}
+
+.largePaddingTop {
+    padding-top: 50px;
+}
+
+.largePaddingBottom {
+    padding-bottom: 50px;
+}
+
+
+.containerScreenCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
 .darkButton {
     background-color: #141729; /* Button background color */
-    color: #FFFFFF; /* Button text color
+    color: #FFFFFF; /* Button text color */
 
     align-items: center; /* Vertically center the content */
     margin: auto; /* Center the button horizontally within its container */

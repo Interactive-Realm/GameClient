@@ -1,29 +1,31 @@
 import { useLayoutEffect, useRef, useState, useContext } from 'react';
-import StartGame from '../Game/main';
-import { EventBus } from '../Game/EventBus';
-import GameOver from '../Game/scenes/GameOver';
+import { SoapboxStart, OceanStart, FlappyStart } from '@interactive-realm/phasergamelibrary';
+import { EventBus } from '@interactive-realm/phasergamelibrary';
+import GameOver from '../BasePatternComponents/GameOver';
 import { Screen, UserContext } from '@interactive-realm/basepatternutilities';
 
 interface Props {
-    setScreen: React.Dispatch<React.SetStateAction<Screen>>;
+    setScreen: React.Dispatch<React.SetStateAction<Screen>>; // Used to switch state of the application (Pregame, Game, Postgame etc..)
 }
 
-const PhaserGame: React.FC<Props> = ({ setScreen }) => 
+const GameHandler: React.FC<Props> = ({ setScreen }) => 
 {
-    const game = useRef<Phaser.Game | null>(null!);
-    const [gameEnd, setGameEnd] = useState(false);
-    const userInfo = useContext(UserContext);
+    const game = useRef<Phaser.Game | null>(null!);  // Reference to the Phaser Game
+    const [gameEnd, setGameEnd] = useState(false); // Used to identify if a game has ended
+    const userInfo = useContext(UserContext); // User context is used to save score locally
 
     useLayoutEffect(() =>
     {
+        // Needs the gameEnd boolean or it will create a duplicate game when it reaches the GameOver Screen
         if (game.current === null && gameEnd == false)
         {
-            game.current = SoapboxStart("game-container"); // Starts the Phaser Game
+            game.current = OceanStart("game-container", false); // Starts the Phaser Game
             console.log("NewGame");
         }
 
         return () =>
         {
+            // If a game exist and the game has ended destroy the game and set current game to null
             if (game.current && gameEnd == true)
             {
                 console.log("Game Current return: " + game.current)
@@ -60,4 +62,4 @@ const PhaserGame: React.FC<Props> = ({ setScreen }) =>
 
 };
 
-export default PhaserGame;
+export default GameHandler;
