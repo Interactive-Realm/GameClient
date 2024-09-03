@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState, useContext } from 'react';
 import { SoapboxStart, OceanStart, FlappyStart } from '@interactive-realm/phasergamelibrary';
 import { EventBus } from '@interactive-realm/phasergamelibrary';
-import GameOver from '@interactive-realm/phasergamelibrary';
+import GameOver from '../BasePatternComponents/GameOver';
 import { Screen, UserContext } from '@interactive-realm/basepatternutilities';
 
 interface Props {
@@ -19,7 +19,7 @@ const GameHandler: React.FC<Props> = ({ setScreen }) =>
         // Needs the gameEnd boolean or it will create a duplicate game when it reaches the GameOver Screen
         if (game.current === null && gameEnd == false)
         {
-            game.current = FlappyStart("game-container", false); // Starts the Phaser Game
+            game.current = OceanStart("game-container", false); // Starts the Phaser Game
             console.log("NewGame");
         }
 
