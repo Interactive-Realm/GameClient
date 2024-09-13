@@ -10,8 +10,9 @@ import CampaignStart from "./BasePatternComponents/CampaignStartComponent";     
 
 import { Screen, checkDate, UserContext } from "@interactive-realm/basepatternutilities";   // BasePatternUtilities Functions Import
 
-import CMSLoginPage from "./CMS/LoginPage";                                                 // CMS Login Page
-import Dashboard from "./CMS/Dashboard";                                                    // CMS Dashboard
+//import CMSLoginPage from "./CMS/LoginPage";                                                 // CMS Login Page
+import CMSLoginPage from "./CMS/LoginPage_BS";
+import Dashboard from "./CMS/Dashboard_BS";                                                    // CMS Dashboard
 
 import 'bootstrap/dist/css/bootstrap.min.css';                                              // Bootstrap CSS
 import './App.css'                                                                          // Custom CSS 
@@ -80,8 +81,9 @@ function App() {
             {/* Reroute all paths to the main campaign route */}
             <Route path="/*" element={<Navigate to='/campaign' />} /> 
 
-        <Route path="/*" element={<Navigate to='/campaign' />} />
-        {<Route path="/CMS" element={<CMSLoginPage/>} />}
+        <Route path="/*" element={<Navigate to='/CMS' />} />
+        <Route path="/Login" element={<CMSLoginPage/>} />
+        <Route path="/Dashboard" element={<Dashboard/>} />
       </Routes>
       
     </BrowserRouter>
