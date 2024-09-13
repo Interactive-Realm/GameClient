@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import InputForm from "../PostGame/Components/InputForm";                               //Input form component
 import HighscoreList from "../PostGame/Components/HighscoreList";
 import { Screen, UserContext } from "@interactive-realm/basepatternutilities"           
-import { Score, ClientFunctions, UserTypes} from "@interactive-realm/databaseutilities";
+import { Score, Users, UserTypes} from "@interactive-realm/databaseutilities";
 
 let isCalled = true;
 
@@ -28,7 +28,7 @@ const PostGameHandler: React.FC<Props> = ({ setApplicationState: setScreen }) =>
         if (JSON.parse(localStorage.getItem("userinfo")!) != null) {
             console.log("Local Storage exists: " + JSON.parse(localStorage.getItem("userinfo")!))
             
-            const { data, error } = await ClientFunctions.CheckUserData(
+            const { data, error } = await Users.CheckUserData(
                 JSON.parse(localStorage.getItem("userinfo")!),
                 "sdsusers"
             );

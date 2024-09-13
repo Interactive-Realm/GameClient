@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "@interactive-realm/basepatternutilities";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
-import { ClientFunctions, Score, UserTypes } from "@interactive-realm/databaseutilities";
+import { Users, Score, UserTypes } from "@interactive-realm/databaseutilities";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -21,7 +21,7 @@ const Input = ({ onSignUp, score }: Props) => {
     const onSubmit = async (values: UserTypes.UserHighscoreNumber) => {
 
         try {
-            const { data, error } = await ClientFunctions.CheckUserData(
+            const { data, error } = await Users.CheckUserData(
                 values.phonenumber,
                 "sdsusers"
             );
@@ -34,7 +34,7 @@ const Input = ({ onSignUp, score }: Props) => {
                 userInfo.userInfo = values.phonenumber
                 localStorage.setItem('userinfo', JSON.stringify(userInfo.userInfo));
 
-                await ClientFunctions.InsertUser(values.first_name, userInfo.userInfo, score);
+                await Users.InsertUser(values.first_name, userInfo.userInfo, score);
                 onSignUp();
                 
                 console.log("Data submitted successfully!");
