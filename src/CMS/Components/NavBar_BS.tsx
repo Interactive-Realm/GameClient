@@ -6,11 +6,10 @@ import {  faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
     return (
-            <Row fluid sm={12} className="align-self-baseline g-0 mb-0">
+            <Row   className="bg-body-dark g-0 mb-0 gap-0">
 
                 <Navbar className="bg-body-light e-auto">
 
-                    <Container fluid>
 
                         {/* Company Logo */}
                         <Navbar.Brand href="#home">
@@ -49,7 +48,6 @@ const NavBar = () => {
 
                         </Navbar.Collapse>
 
-                    </Container>
 
                 </Navbar>
 
