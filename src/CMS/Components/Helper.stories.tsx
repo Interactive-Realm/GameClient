@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import DemographicsPage from './Demographics_Page';
+import Helper from './Helper';
 
 const meta = {
-  component: DemographicsPage,
-} satisfies Meta<typeof DemographicsPage>;
+  component: Helper,
+} satisfies Meta<typeof Helper>;
 
 export default meta;
 
