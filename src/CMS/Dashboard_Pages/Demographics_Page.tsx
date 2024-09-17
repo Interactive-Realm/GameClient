@@ -30,9 +30,21 @@ const Demographics_Page = () => {
             {/* Menu Line */}
             <Row md={6} className="mb-2 gap-2">
                 Demographic for Period
-                <Badge as={Dropdown} pill bg="secondary">
-                    10th of August
-                </Badge>                                            
+                <Row>
+                    <Dropdown>
+                        <Dropdown.Toggle as={Badge} pill bg="secondary" id="dropdown-basic" className="p-2 px-4">
+                            10th of August
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">10 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">15 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">20 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">25 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">30 Per Page</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown> 
+                </Row>                                                         
             </Row>
             <Row sm={12} className="justify-content-center align-items-center mx-auto g-0">
                 <ListGroup horizontal className="text-center">
@@ -63,9 +75,21 @@ const Demographics_Page = () => {
             {/* Menu Line */}
             <Row md={6} className="gap-2">
                 Demographic for Period
-                <Badge as={Dropdown} pill bg="secondary">
-                    10th of August
-                </Badge>                                            
+                <Row>
+                    <Dropdown>
+                        <Dropdown.Toggle as={Badge} pill bg="secondary" id="dropdown-basic" className="p-2 px-4">
+                            10th of August - 24th of August
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">10 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">15 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">20 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">25 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">30 Per Page</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown> 
+                </Row>                                               
             </Row>
         
             {/* Number Jumbotron */}
