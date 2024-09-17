@@ -123,18 +123,18 @@ a:hover {
     text-decoration: none; /* Removed underline effect */
   }
 
-  #dashboard{
+  .dashboard{
     height: 100vh;
   }
 
-  #user_icon{
+  .user_icon{
     border-radius: 50%;
   }
 
-  #nav_btn{
+  .nav_btn{
     background-color: none;
   }
 
-  #tab{
-    overflow-y: auto;
+  .tab{
+    overflow-y: scroll;
   }
