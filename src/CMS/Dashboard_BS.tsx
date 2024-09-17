@@ -1,25 +1,22 @@
-import {  Container, Nav, Row, Col, ListGroup, Button, Tabs, Tab } from 'react-bootstrap';
+import {  Container, Nav, Row, Col, ListGroup, Button, Tabs, Tab, Navbar } from 'react-bootstrap';
 import NavBar from "./Components/NavBar_BS";
 import Traffic_Page from './Dashboard_Pages/Traffic_Page';
 import Demographics_Page from './Dashboard_Pages/Demographics_Page';
 import UserDetails_Page from './Dashboard_Pages/UserDetails_Page';
 import Export_Page from './Dashboard_Pages/Export_Page';
 
+
 // Navbar
 const Dashboard = () => {
     
-    return (            
-        <Container fluid className="vh-100 g-0">
+    return (       
 
-                <NavBar></NavBar>
-           
+        <Row className="vh-100 overflow-hidden gap-0 g-0">      
 
-                <Row className="h-100 gap-0">
-
-                    
+                          
 
                     {/* Side Nav Bar */}
-                    <Col xs={2} className="d-flex flex-column bg-dark d-flex pb-0 flex-shrink-0 g-0">
+                    <Col className="d-flex flex-column h-100 bg-dark pb-0">
                         
                         <span className="p-2 text-light fw-bold">Overview</span>
 
@@ -57,7 +54,7 @@ const Dashboard = () => {
 
                             </ListGroup>
 
-                        <Col className="d-flex flex-column align-self-end justify-content-end mx-auto mt-auto g-0">
+                        <Col className="d-inline-flex flex-column align-self-end justify-content-end mx-auto h-auto g-0">
 
                             <span className="text-light text-center text-wrap h6">Interactive Realm</span>
 
@@ -78,46 +75,36 @@ const Dashboard = () => {
                             
                     </Col>
 
-                    {/* Content */}
+                    {/* Content Area */}
                     <Col lg={10} className="bg-body-secondary">
 
-                        {/* Content Tabs */}
-                        <Row className="">
-                            
-                            <Tabs
-                                defaultActiveKey="traffic"
-                                id="justify-tab-example"
-                                className=""
-                                justify
-                                >                                    
+                        {/* Content Tabs */}                      
+                        <Tabs
+                            defaultActiveKey="demographics"
+                            id="justify-tab-example"
+                            className=""
+                            justify
+                            >                                   
 
-                                
-                                <Tab eventKey="traffic" title="Traffic" className="">
-                                    <Traffic_Page></Traffic_Page>
-                                </Tab>
-                                <Tab eventKey="demographics" title="Demographics" className="">
-                                    <Demographics_Page></Demographics_Page>
-                                </Tab>
-                                <Tab eventKey="userdetail" title="User Details" className="p-3">
-                                    <UserDetails_Page></UserDetails_Page>
-                                </Tab>
-                                <Tab eventKey="export" title="Export" className="p-3">
-                                    <Export_Page></Export_Page>
-                                </Tab>
-                            </Tabs>
-                        </Row>
-
-                        {/* Actual Content */}
-                        <Row>
-
-                        </Row>
+                            <Tab eventKey="traffic" title="Traffic" className="">
+                                <Traffic_Page></Traffic_Page>
+                            </Tab>
+                            <Tab eventKey="demographics" title="Demographics" className="p-3 overflow-auto">
+                                <Demographics_Page></Demographics_Page>
+                            </Tab>
+                            <Tab eventKey="userdetail" title="User Details" className="p-3">
+                                <UserDetails_Page></UserDetails_Page>
+                            </Tab>
+                            <Tab eventKey="export" title="Export" className="p-3">
+                                <Export_Page></Export_Page>
+                            </Tab>
+                        </Tabs>                    
 
                     </Col>
 
-                </Row>
+        </Row>
 
-            </Container>
-      );
+    );
 }
 
 export default Dashboard;
