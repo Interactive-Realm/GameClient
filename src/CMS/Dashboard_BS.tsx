@@ -1,9 +1,9 @@
 import {  Container, Nav, Row, Col, ListGroup, Button, Tabs, Tab } from 'react-bootstrap';
 import NavBar from "./Components/NavBar_BS";
-import Traffic_Page from './Components/Traffic_Page';
-import Demographics_Page from './Components/Demographics_Page';
-import UserDetails_Page from './Components/UserDetails_Page';
-import Export_Page from './Components/Export_Page';
+import Traffic_Page from './Dashboard_Pages/Traffic_Page';
+import Demographics_Page from './Dashboard_Pages/Demographics_Page';
+import UserDetails_Page from './Dashboard_Pages/UserDetails_Page';
+import Export_Page from './Dashboard_Pages/Export_Page';
 
 // Navbar
 const Dashboard = () => {
@@ -83,13 +83,15 @@ const Dashboard = () => {
 
                         {/* Content Tabs */}
                         <Row className="">
+                            
                             <Tabs
                                 defaultActiveKey="traffic"
                                 id="justify-tab-example"
                                 className=""
                                 justify
-                                >
+                                >                                    
 
+                                
                                 <Tab eventKey="traffic" title="Traffic" className="">
                                     <Traffic_Page></Traffic_Page>
                                 </Tab>
