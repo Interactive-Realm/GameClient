@@ -11,12 +11,12 @@ const Dashboard = () => {
     
     return (       
 
-        <Row className="vh-100 overflow-hidden gap-0 g-0">      
+        <Row className="vh-100 vw-100 overflow-hidden gap-0 g-0">      
 
-                          
+                    <NavBar></NavBar>
 
                     {/* Side Nav Bar */}
-                    <Col className="d-flex flex-column h-100 bg-dark pb-0">
+                    <Col className="d-lg-flex flex-column h-100 bg-dark pb-0 d-none ">
                         
                         <span className="p-2 text-light fw-bold">Overview</span>
 
@@ -54,20 +54,16 @@ const Dashboard = () => {
 
                             </ListGroup>
 
-                        <Col className="d-inline-flex flex-column align-self-end justify-content-end mx-auto h-auto g-0">
+                        <Col className="d-inline-flex flex-column align-self-end justify-content-end w-100 h-auto g-0">
 
                             <span className="text-light text-center text-wrap h6">Interactive Realm</span>
 
                             <Container>
 
-                                <Row className="text-center d-flex">
-
-                                    <Nav defaultActiveKey="/home" className="d-flex flex-row align-items-evenly">
-                                        <Col sm={6}><Nav.Link className="text-light" href="/home">Home</Nav.Link></Col>
-                                        <Col sm={6}><Nav.Link className="text-light" eventKey="link-1">Contact</Nav.Link></Col>  
+                                    <Nav defaultActiveKey="/home" className="d-flex flex-row justify-content-between text-center d-flex g-0 mb-4">
+                                        <Col sm={4}><Nav.Link className="text-light" eventKey="link-2">Help</Nav.Link></Col>
+                                        <Col sm={4}><Nav.Link className="text-light" eventKey="link-1">Contact</Nav.Link></Col>  
                                     </Nav>
-
-                                </Row>
 
                             </Container>
                             

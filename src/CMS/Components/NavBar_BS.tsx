@@ -6,9 +6,9 @@ import {  faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
     return (
-            <Row   className="bg-body-dark g-0 mb-0 gap-0">
+            <Row className="w-100 bg-body-dark g-0 mb-0 gap-0 px-4">
 
-                <Navbar className="bg-body-light e-auto">
+                <Navbar expand="lg" className="bg-body-light">
 
 
                         {/* Company Logo */}
@@ -36,7 +36,7 @@ const NavBar = () => {
                                 src={UserIcon}
                                 height="30"
                                 id="user_icon"
-                                className="justify-content-left"
+                                className="justify-content-left rounded-circle"
                                 alt="RealmLogo"
                                 />
                             </Navbar.Brand>
