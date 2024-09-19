@@ -132,9 +132,14 @@ a:hover {
   }
 
   .nav_btn{
-    background-color: none;
+    background-color: transparent;
+    background: transparent;
   }
 
   .tab{
     overflow-y: scroll;
+  }
+
+  .bg-transparent:hover{
+    background-color: aqua;
   }

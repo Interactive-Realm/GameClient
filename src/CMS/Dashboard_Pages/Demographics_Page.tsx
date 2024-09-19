@@ -16,7 +16,7 @@ export const data = [
 
 const Demographics_Page = () => {
     return (
-        <Col fluid className="p-3 gap-1 h-100 overflow-auto">
+        <Row sm={12} className="p-4 gap-1 h-100 overflow-scroll">
 
             <Row className="g-0">
                 <p className="text-muted">Welcome back, Peter! 
@@ -150,7 +150,7 @@ const Demographics_Page = () => {
             
             </Row>
         
-        </Col>
+        </Row>
     );
 }
 

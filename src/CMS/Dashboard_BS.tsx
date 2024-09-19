@@ -11,7 +11,7 @@ const Dashboard = () => {
     
     return (       
 
-        <Row className="vh-100 vw-100 overflow-hidden gap-0 g-0">      
+        <Row className="vh-100 vw-100 overflow-auto gap-0 g-0">      
 
                     <NavBar></NavBar>
 
@@ -22,11 +22,11 @@ const Dashboard = () => {
 
                             <ListGroup variant="flush">
 
-                                <ListGroup.Item as={Button} className="text-light btn-outline-dark" action variant="dark">
+                                <ListGroup.Item as={Button} className="text-light bg-transparent" action variant="dark">
                                     Dashboard
                                 </ListGroup.Item>
 
-                                <ListGroup.Item action variant="dark">
+                                <ListGroup.Item action variant="link">
                                     Campaign
                                 </ListGroup.Item>
 
@@ -76,16 +76,16 @@ const Dashboard = () => {
 
                         {/* Content Tabs */}                      
                         <Tabs
-                            defaultActiveKey="demographics"
+                            defaultActiveKey="export"
                             id="justify-tab-example"
                             className=""
                             justify
                             >                                   
 
-                            <Tab eventKey="traffic" title="Traffic" className="">
+                            <Tab eventKey="traffic" title="Traffic" className="p-3">
                                 <Traffic_Page></Traffic_Page>
                             </Tab>
-                            <Tab eventKey="demographics" title="Demographics" className="p-3 overflow-auto">
+                            <Tab eventKey="demographics" title="Demographics" className="p-3">
                                 <Demographics_Page></Demographics_Page>
                             </Tab>
                             <Tab eventKey="userdetail" title="User Details" className="p-3">

@@ -1,9 +1,9 @@
-import {  Row, Col, Badge, Dropdown, ListGroup, Card, Form  } from 'react-bootstrap';
+import {  Row, Col, Badge, Dropdown, ListGroup, Card, Form, Container  } from 'react-bootstrap';
 import { Chart } from "react-google-charts";
 
 const Export_Page = () => {
     return (
-        <Row sm={12} className="p-3 gap-1">
+        <Row sm={12} className="p-4 gap-1 w-75">
 
         <Row className="g-0">
             <p className="text-muted">Welcome back, Peter! 
@@ -13,13 +13,13 @@ const Export_Page = () => {
         </Row>
         
         {/* Traffic Number Jumbotron */}
-        <Row className="g-0 gap-3 my-3">
+        <Row className="g-0 gap-3 my-3 w-25">
             {/* Menu Line */}
             <Row sm={2} className="mb-2 gap-2">
                 Export Data                                         
             </Row>
 
-            <Row className="g-0">
+            <Col className="g-0">
                 <Card body>
                     <Form>            
                         <div className="mb-3">
@@ -49,16 +49,26 @@ const Export_Page = () => {
                         </div>            
                     </Form>
                 </Card>
-            </Row>
+            </Col>
 
             <Row sm={2} className="mb-2 gap-2">
                 Time Frame                                        
             </Row>
 
             <Row className="gap-2">
-                <Badge as={Dropdown} pill bg="secondary">
-                    10th of August
-                </Badge>                                            
+            <Dropdown>
+                        <Dropdown.Toggle as={Badge} pill bg="secondary" id="dropdown-basic" className="p-2 px-4">
+                            10th of August
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">10 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">15 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">20 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">25 Per Page</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">30 Per Page</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>                                           
             </Row>
 
             <Row sm={2} className="mb-2">
@@ -66,10 +76,9 @@ const Export_Page = () => {
             </Row>
 
             <Row className="g-0">
-                <Card body>
-                    <Form>
+                <Card body className="g-0 align-self-center">
+                    <Form className="g-0 align-self-center">
             
-                        <div className="mb-3">
                         <Form.Check // prettier-ignore
                             inline
                             type="radio"
@@ -83,8 +92,6 @@ const Export_Page = () => {
                             id="csv"
                             label=".CSV"
                         />    
-                        </div>
-            
                     </Form>
                 </Card>
             </Row>
