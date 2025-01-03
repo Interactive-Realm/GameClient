@@ -50,13 +50,14 @@ const GameHandler: React.FC<Props> = ({ setScreen }) =>
     });
 
     return (
-        <div id="GameHandler">
-            {gameEnd? (
-                <GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
-            ):(
-                <div id="game-container"></div> // Else show div container for phaser game
-            )}        
-        </div>
+        /*<>
+       </> {gameEnd? (
+            <GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
+        ):(*/
+            <div id="game-container"></div> // Else show div container for phaser game
+        /*)}
+        
+        </>*/
     );
 
 };

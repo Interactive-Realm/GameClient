@@ -66,6 +66,9 @@
     padding-bottom: 50px;
 }
 
+.darkColor{
+    background-color: #141729;
+}
 
 .containerScreenCenter {
     display: flex;
@@ -118,4 +121,25 @@ a:hover {
   .custom-navbar .nav-link:hover {
     background-color: #3E4259; /* Hover effect */
     text-decoration: none; /* Removed underline effect */
+  }
+
+  .dashboard{
+    height: 100vh;
+  }
+
+  .user_icon{
+    border-radius: 50%;
+  }
+
+  .nav_btn{
+    background-color: transparent;
+    background: transparent;
+  }
+
+  .tab{
+    overflow-y: scroll;
+  }
+
+  .bg-transparent:hover{
+    background-color: aqua;
   }

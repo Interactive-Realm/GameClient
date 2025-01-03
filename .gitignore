@@ -26,3 +26,5 @@ dist-ssr
 .env
 src/Game/*
 src/PostGame/
+
+*storybook.log
