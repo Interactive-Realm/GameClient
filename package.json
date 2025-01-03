@@ -27,7 +27,6 @@
     },
     "dependencies": {
         "@interactive-realm/basepatternutilities": "^0.4.0",
-        "@interactive-realm/databaseutilities": "^1.2.0",
         "@interactive-realm/phasergamelibrary": "^0.27.0",
         "@supabase/supabase-js": "^2.44.2",
         "phaser": "^3.80.1",
