@@ -10,10 +10,6 @@ import CampaignStart from "./BasePatternComponents/CampaignStartComponent";     
 
 import { Screen, checkDate, UserContext } from "@interactive-realm/basepatternutilities";   // BasePatternUtilities Functions Import
 
-import CMSLoginPage from "./CMS/LoginPage";                                                 // CMS Login Page
-import Dashboard from "./CMS/Dashboard";                                                    // CMS Dashboard
-
-import 'bootstrap/dist/css/bootstrap.min.css';                                              // Bootstrap CSS
 import './App.css'                                                                          // Custom CSS 
 
 
@@ -55,7 +51,7 @@ function App() {
 
     // Campaign Runtime checker
     useEffect(()=>{
-        checkDate(new Date("2024-07-06"), new Date("2024-08-10"), setScreen);
+        checkDate(new Date("2025-01-01"), new Date("2025-31-12"), setScreen);
     },[]);
             
 
@@ -80,8 +76,6 @@ function App() {
             {/* Reroute all paths to the main campaign route */}
             <Route path="/*" element={<Navigate to='/campaign' />} /> 
 
-            {/* Reroute all paths to the main campaign route */}
-            <Route path="/CMS" element={<CMSLoginPage/>} />
         </Routes>      
     </BrowserRouter>        
     );
