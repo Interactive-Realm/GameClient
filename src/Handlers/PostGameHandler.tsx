@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import InputForm from "../PostGame/Components/InputForm";                               //Input form component
 import HighscoreList from "../PostGame/Components/HighscoreList";
 import { Screen, UserContext } from "@interactive-realm/basepatternutilities"           
-import { Score, Users, UserTypes} from "@interactive-realm/databaseutilities";
+import { Score, Users, UserTypes} from "../Supabase/index";
 
 let isCalled = true;
 
@@ -30,7 +30,7 @@ const PostGameHandler: React.FC<Props> = ({ setApplicationState: setScreen }) =>
             
             const { data, error } = await Users.CheckUserData(
                 JSON.parse(localStorage.getItem("userinfo")!),
-                "sdsusers"
+                "regusers"
             );
             console.log("Does user exist in DB: " + data);
             if (data) {
