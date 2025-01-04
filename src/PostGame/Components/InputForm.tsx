@@ -1,11 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "@interactive-realm/basepatternutilities";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
-import { Users, Score, UserTypes } from "@interactive-realm/databaseutilities";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { Form } from 'react-bootstrap';
+import { Users, Score, UserTypes } from "../../Supabase/index";
 
 type Props = {
     onSignUp: () => void;
@@ -23,7 +19,7 @@ const Input = ({ onSignUp, score }: Props) => {
         try {
             const { data, error } = await Users.CheckUserData(
                 values.phonenumber,
-                "sdsusers"
+                "regusers"
             );
             console.log(data);
 
