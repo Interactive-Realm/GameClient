@@ -19,7 +19,7 @@ const GameHandler: React.FC<Props> = ({ setScreen }) =>
         // Needs the gameEnd boolean or it will create a duplicate game when it reaches the GameOver Screen
         if (game.current === null && gameEnd == false)
         {
-            game.current = OceanStart("game-container", false); // Starts the Phaser Game
+            game.current = SoapboxStart("game-container", false); // Starts the Phaser Game
             console.log("NewGame");
         }
 
@@ -50,14 +50,14 @@ const GameHandler: React.FC<Props> = ({ setScreen }) =>
     });
 
     return (
-        /*<>
-       </> {gameEnd? (
+        <>
+        {gameEnd? (
             <GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
-        ):(*/
+        ):(
             <div id="game-container"></div> // Else show div container for phaser game
-        /*)}
+        )}
         
-        </>*/
+        </>
     );
 
 };
