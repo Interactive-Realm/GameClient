@@ -1,12 +1,12 @@
 import {supabase} from "./SupabaseClient"
 
 // Insert user into database
-export const InsertUser = async (first_name: string, phonenumber: string, score: number): Promise<void> => {
+export const InsertUser = async (first_name: string, phonenumber: string, highscore: number): Promise<void> => {
     let { data, error } = await supabase
     .rpc('insert_user', {
       user_name: first_name, 
       user_number: phonenumber, 
-      user_score: score
+      user_score: highscore
     })
   if (error) console.error(error)
   return data;
