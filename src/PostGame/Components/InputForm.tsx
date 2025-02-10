@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "@interactive-realm/basepatternutilities";
+
+import { UserContext } from "../../BasePatternComponents/UserContext"; 
+
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
+
 import { Users, Score, UserTypes } from "../../Supabase/index";
 
 type Props = {

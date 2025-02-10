@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import InputForm from "../PostGame/Components/InputForm";                               //Input form component
 import HighscoreList from "../PostGame/Components/HighscoreList";
-import { Screen, UserContext } from "@interactive-realm/basepatternutilities"           
+
+import { UserContext } from "../BasePatternComponents/UserContext";       // BasePatternUtilities Functions Import
+import { Screen } from "../BasePatternComponents/routes";           
 import { Score, Users, UserTypes} from "../Supabase/index";
 
 let isCalled = true;

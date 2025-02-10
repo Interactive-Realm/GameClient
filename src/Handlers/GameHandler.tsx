@@ -1,8 +1,11 @@
 import { useLayoutEffect, useRef, useState, useContext } from 'react';
+
 import { SoapboxStart, OceanStart, FlappyStart } from '@interactive-realm/phasergamelibrary';
 import { EventBus } from '@interactive-realm/phasergamelibrary';
+
 import GameOver from '../BasePatternComponents/GameOver';
-import { Screen, UserContext } from '@interactive-realm/basepatternutilities';
+import { UserContext } from "../BasePatternComponents/UserContext";       // BasePatternUtilities Functions Import
+import { Screen } from "../BasePatternComponents/routes"; 
 
 interface Props {
     setScreen: React.Dispatch<React.SetStateAction<Screen>>; // Used to switch state of the application (Pregame, Game, Postgame etc..)
