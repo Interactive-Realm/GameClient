@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { UserContext } from "@interactive-realm/basepatternutilities";
+import { UserContext } from "../BasePatternComponents/UserContext";
 
 
 interface FrontPageProps {
