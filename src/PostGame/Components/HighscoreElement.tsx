@@ -1,4 +1,4 @@
-import { UserTypes } from "@interactive-realm/databaseutilities";
+import { UserTypes } from "../../Supabase/index";
 
 type Props = {
     rank: number;

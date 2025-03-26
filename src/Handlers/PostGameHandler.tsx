@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import InputForm from "../PostGame/Components/InputForm";                               //Input form component
 import HighscoreList from "../PostGame/Components/HighscoreList";
-
 import { UserContext } from "../BasePatternComponents/UserContext";       // BasePatternUtilities Functions Import
-import { Screen } from "../BasePatternComponents/routes";           
-import { Score, Users, UserTypes} from "../Supabase/index";
+import { Screen } from "../BasePatternComponents/routes";       
+import { UserTypes} from "../Supabase/index";
+
 
 let isCalled = true;
 
@@ -27,38 +27,46 @@ const PostGameHandler: React.FC<Props> = ({ setApplicationState: setScreen }) =>
     }, []);
 
     const checkUserInfo = async () => {
-        if (JSON.parse(localStorage.getItem("userinfo")!) != null) {
-            console.log("Local Storage exists: " + JSON.parse(localStorage.getItem("userinfo")!))
+
             
-            const { data, error } = await Users.CheckUserData(
-                JSON.parse(localStorage.getItem("userinfo")!),
-                "regusers"
-            );
-            console.log("Does user exist in DB: " + data);
-            if (data) {
-                console.log("Local Storage Matches Database entry:" + data)
-                //console.log(isSignedIn);
-                userInfo.userInfo = JSON.parse(localStorage.getItem("userinfo")!);
-                Score.UpdateScore(
-                    userInfo.userInfo,
-                    parseInt(userInfo.score)
-                );
-                handleSignUp();
-                userInfo.userExist = true;
-            } else {
-                console.log("Removed " + JSON.parse(localStorage.getItem("userinfo")!) + " from localstorage");
-                localStorage.removeItem("userinfo");
-                userInfo.userExist = false;
+            // Check if user exists in Database
+            // const { data, error } = await Users.CheckUserData(
+            //     JSON.parse(localStorage.getItem("userinfo")!),
+            //     "regusers"
+            // );
+
+            //console.log("Does user exist in DB: " + data);
+
+            // If user exists, Sign them in and insert Score
+            // if (data) {
+            //     console.log("Local Storage Matches Database entry:" + data)
+            //     //console.log(isSignedIn);
+            //     userInfo.userInfo = JSON.parse(localStorage.getItem("userinfo")!);
                 
-            }
-        }
+            //     // Insert Score
+            //     Score.UpdateScore(
+            //         userInfo.userInfo,
+            //         parseInt(userInfo.score)
+            //     );
+            //     handleSignUp();
+            //     userInfo.userExist = true;
+            // } 
+            // // User does not exist, then remove user from local storage and add new user info into local storage
+            // else {
+            //     console.log("Removed " + JSON.parse(localStorage.getItem("userinfo")!) + " from localstorage");
+            //     localStorage.removeItem("userinfo");
+            //     userInfo.userExist = false;
+                
+            // }
+        
     };  
 
     const handleSignUp = () => {
         setIsSignedIn(true);
-        Score.GetHighscore().then((highscores) => {
-            setWeeklyHighscores(highscores);
-        });
+
+        // Score.GetHighscore().then((highscores) => {
+        //     setWeeklyHighscores(highscores);
+        // });
     };
 
     return (
@@ -84,7 +92,6 @@ const PostGameHandler: React.FC<Props> = ({ setApplicationState: setScreen }) =>
                     <>
                     <InputForm
                         onSignUp={handleSignUp}
-                        score={parseInt(userInfo.score)}
                     />
                     </>
 

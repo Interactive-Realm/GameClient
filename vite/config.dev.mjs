@@ -6,11 +6,7 @@ import EnvironmentPlugin from 'vite-plugin-environment';
 export default defineConfig({
     base: './',
     plugins: [
-        react(),
-        EnvironmentPlugin([
-            'SUPABASE_URL',
-            'SUPABASE_KEY',
-          ]),
+        react()
     ],
     server: {
         port: 8080

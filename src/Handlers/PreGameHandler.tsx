@@ -1,5 +1,5 @@
 import React from 'react';
-import { Screen } from '@interactive-realm/basepatternutilities';
+import { Screen } from "../BasePatternComponents/routes";
 
 interface Props {
     setScreen: React.Dispatch<React.SetStateAction<Screen>>; // Used to switch state of the application (Pregame, Game, Postgame etc..)

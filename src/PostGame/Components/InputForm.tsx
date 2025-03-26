@@ -4,14 +4,13 @@ import { UserContext } from "../../BasePatternComponents/UserContext";
 
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 
-import { Users, Score, UserTypes } from "../../Supabase/index";
+import { UserTypes } from "../../Supabase/index";
 
 type Props = {
     onSignUp: () => void;
-    score: number;
 };
   
-const Input = ({ onSignUp, score }: Props) => {
+const Input = ({ onSignUp }: Props) => {
     const { register, handleSubmit, formState: { errors } } = useForm<UserTypes.UserHighscoreNumber>();
     const userInfo = useContext(UserContext)
     
@@ -19,40 +18,40 @@ const Input = ({ onSignUp, score }: Props) => {
     //var [score, setScore] = useState<number>();
     const onSubmit = async (values: UserTypes.UserHighscoreNumber) => {
 
-        try {
-            const { data, error } = await Users.CheckUserData(
-                values.phonenumber,
-                "regusers"
-            );
-            console.log(data);
+        // try {
+            // const { data, error } = await Users.CheckUserData(
+            //     values.phonenumber,
+            //     "regusers"
+            // );
+            // console.log(data);
 
-            if (error) return;
+            // if (error) return;
             
 
-            else if (!data) {
-                userInfo.userInfo = values.phonenumber
-                localStorage.setItem('userinfo', JSON.stringify(userInfo.userInfo));
+        //     else if (!data) {
+        //         userInfo.userInfo = values.phonenumber
+        //         localStorage.setItem('userinfo', JSON.stringify(userInfo.userInfo));
 
-                await Users.InsertUser(values.first_name, userInfo.userInfo, score);
-                onSignUp();
+        //         // await Users.InsertUser(values.first_name, userInfo.userInfo, score);
+        //         onSignUp();
                 
-                console.log("Data submitted successfully!");
+        //         console.log("Data submitted successfully!");
                  
-            } else if (data){
+        //     } else if (data){
                 
-                userInfo.userInfo = values.phonenumber
-                localStorage.setItem('userinfo', JSON.stringify(userInfo.userInfo));
-                await Score.UpdateScore(values.phonenumber, score)
-                onSignUp();
-            }
+        //         userInfo.userInfo = values.phonenumber
+        //         localStorage.setItem('userinfo', JSON.stringify(userInfo.userInfo));
+        //         await Score.UpdateScore(values.phonenumber, score)
+        //         onSignUp();
+        //     }
 
-            // Call insertUserData function from dbUtility to insert user data
+        //     // Call insertUserData function from dbUtility to insert user data
 
-            // Optionally, you can perform additional actions after successful submission
+        //     // Optionally, you can perform additional actions after successful submission
            
-        } catch (error) {
-            console.error("Error submitting data:", error);
-        }
+        // } catch (error) {
+        //     console.error("Error submitting data:", error);
+        // }
     };
 
     return (
