@@ -3,7 +3,7 @@ import InputForm from "../PostGame/Components/InputForm";                       
 import HighscoreList from "../PostGame/Components/HighscoreList";
 import { UserContext } from "../BasePatternComponents/UserContext";       // BasePatternUtilities Functions Import
 import { Screen } from "../BasePatternComponents/routes";       
-import { UserTypes} from "../Supabase/index";
+import { UserHighscoreNumber} from "../BasePatternComponents";
 
 
 let isCalled = true;
@@ -14,7 +14,7 @@ interface Props {
 
 const PostGameHandler: React.FC<Props> = ({ setApplicationState: setScreen }) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
-    const [weeklyHighscores, setWeeklyHighscores] = useState<UserTypes.UserHighscoreNumber[]>([]);
+    const [weeklyHighscores, setWeeklyHighscores] = useState<UserHighscoreNumber[]>([]);
     const userInfo = useContext(UserContext);    
 
     useEffect(() => {

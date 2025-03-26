@@ -1,3 +1,5 @@
+// User models
+export * from './usertypes';
 
 // Routes (Screen type and UseState for changing application state)
 export * from './routes';

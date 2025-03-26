@@ -4,19 +4,18 @@ import { UserContext } from "../../BasePatternComponents/UserContext";
 
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 
-import { UserTypes } from "../../Supabase/index";
+import { UserHighscoreNumber } from "../../BasePatternComponents"; 
+
 
 type Props = {
     onSignUp: () => void;
 };
   
 const Input = ({ onSignUp }: Props) => {
-    const { register, handleSubmit, formState: { errors } } = useForm<UserTypes.UserHighscoreNumber>();
+    const { register, handleSubmit, formState: { errors } } = useForm<UserHighscoreNumber>();
     const userInfo = useContext(UserContext)
     
-
-    //var [score, setScore] = useState<number>();
-    const onSubmit = async (values: UserTypes.UserHighscoreNumber) => {
+    const onSubmit = async (values: UserHighscoreNumber) => {
 
         // try {
             // const { data, error } = await Users.CheckUserData(

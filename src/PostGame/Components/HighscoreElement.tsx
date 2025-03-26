@@ -1,8 +1,8 @@
-import { UserTypes } from "../../Supabase/index";
+import { UserHighscoreNumber } from "../../BasePatternComponents"; 
 
 type Props = {
     rank: number;
-    highscore: UserTypes.UserHighscoreNumber;
+    highscore: UserHighscoreNumber;
     cssid: string;
 };
 
