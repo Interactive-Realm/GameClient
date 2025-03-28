@@ -51,6 +51,7 @@ const Input = ({ onSignUp }: Props) => {
         // } catch (error) {
         //     console.error("Error submitting data:", error);
         // }
+        onSignUp();
     };
 
     return (
