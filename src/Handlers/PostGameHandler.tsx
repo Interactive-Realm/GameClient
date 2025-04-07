@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 import InputForm from "../PostGame/Components/InputForm";   
 import InputFormNew from "../PostGame/Components/InputFormNew";                               //Input form component
-import { LoginForm } from "@/components/login-form";
+import Page from "@/PostGame/Components/RegistrationForm";
 
 import { UserContext } from "../BasePatternComponents/UserContext";       // BasePatternUtilities Functions Import
 import { Screen } from "../BasePatternComponents/routes";       
@@ -48,22 +48,18 @@ const PostGameHandler: React.FC<Props> = ({ setScreen: setScreen }) => {
 
     const handleSignUp = () => {
         setIsSignedIn(true);
-
-        // Score.GetHighscore().then((highscores) => {
-        //     setWeeklyHighscores(highscores);
-        // });
     };
 
     return (
         <div>
-            <LoginForm></LoginForm>
+            
                 {isSignedIn ? (
                     <>
                     {component}
                     </>
                 ) : (
                     <>
-                    
+                    <Page></Page>
                     {/* <InputFormNew></InputFormNew> */}
                     {/* <InputForm
                         onSignUp={handleSignUp}
