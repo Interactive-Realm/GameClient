@@ -8,3 +8,5 @@ export const useScreen = () => {
     const [screen, setScreen] = useState<Screen>('pregame');
     return { screen, setScreen };
 };
+
+export type RewardRoutes = "leaderboard" | "raffle" | "rewardpool";

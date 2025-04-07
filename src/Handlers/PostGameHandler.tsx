@@ -1,65 +1,50 @@
 import React, { useState, useEffect, useContext } from "react";
-import InputForm from "../PostGame/Components/InputForm";                               //Input form component
-import HighscoreList from "../PostGame/Components/HighscoreList";
+
+import InputForm from "../PostGame/Components/InputForm";   
+import InputFormNew from "../PostGame/Components/InputFormNew";                               //Input form component
+import { LoginForm } from "@/components/login-form";
+
 import { UserContext } from "../BasePatternComponents/UserContext";       // BasePatternUtilities Functions Import
 import { Screen } from "../BasePatternComponents/routes";       
-import { UserHighscoreNumber} from "../BasePatternComponents";
 
-
-let isCalled = true;
+//Reward Pages
+import { RewardRoutes } from "../BasePatternComponents/routes"; 
+import LeaderboardPage from "../PostGame/RewardScreens/LeaderboardPage";
+import RafflePage from "../PostGame/RewardScreens/RafflePage";
+import RewardPoolPage from "../PostGame/RewardScreens/RewardPoolPage";
 
 interface Props {
-    setApplicationState: React.Dispatch<React.SetStateAction<Screen>>; // Used to switch state of the application (Pregame, Game, Postgame etc..)
+    setScreen: React.Dispatch<React.SetStateAction<Screen>>; // Used to switch state of the application (Pregame, Game, Postgame etc..)
 }
 
-const PostGameHandler: React.FC<Props> = ({ setApplicationState: setScreen }) => {
+const PostGameHandler: React.FC<Props> = ({ setScreen: setScreen }) => {
     const [isSignedIn, setIsSignedIn] = useState(false);
-    const [weeklyHighscores, setWeeklyHighscores] = useState<UserHighscoreNumber[]>([]);
+    
     const userInfo = useContext(UserContext);    
 
-    useEffect(() => {
-        console.log("isCalled state: " + isCalled)
-        if(isCalled){
-            isCalled = false;
-            checkUserInfo();           
-        }
-        
-    }, []);
+    const [RewardRoutes, setRewardRoute] = useState<RewardRoutes>('leaderboard'); // Set Initial Screen
 
-    const checkUserInfo = async () => {
+    let component; // React Render Component
 
-            
-            // Check if user exists in Database
-            // const { data, error } = await Users.CheckUserData(
-            //     JSON.parse(localStorage.getItem("userinfo")!),
-            //     "regusers"
-            // );
+    
+    switch (RewardRoutes) {
 
-            //console.log("Does user exist in DB: " + data);
+        // Switch to Leaderboard Page
+        case "leaderboard":
+            component = <LeaderboardPage setScreen={setScreen} />;
+            break;
 
-            // If user exists, Sign them in and insert Score
-            // if (data) {
-            //     console.log("Local Storage Matches Database entry:" + data)
-            //     //console.log(isSignedIn);
-            //     userInfo.userInfo = JSON.parse(localStorage.getItem("userinfo")!);
-                
-            //     // Insert Score
-            //     Score.UpdateScore(
-            //         userInfo.userInfo,
-            //         parseInt(userInfo.score)
-            //     );
-            //     handleSignUp();
-            //     userInfo.userExist = true;
-            // } 
-            // // User does not exist, then remove user from local storage and add new user info into local storage
-            // else {
-            //     console.log("Removed " + JSON.parse(localStorage.getItem("userinfo")!) + " from localstorage");
-            //     localStorage.removeItem("userinfo");
-            //     userInfo.userExist = false;
-                
-            // }
-        
-    };  
+        // Switch to Raffle Page
+        case "raffle":
+            component = <RafflePage setScreen={setScreen} />;
+            break;
+
+        // Switch to Reward Pool Page
+        case "rewardpool":
+            component = <RewardPoolPage setScreen={setScreen}/>;
+            break;
+
+    }
 
     const handleSignUp = () => {
         setIsSignedIn(true);
@@ -70,29 +55,19 @@ const PostGameHandler: React.FC<Props> = ({ setApplicationState: setScreen }) =>
     };
 
     return (
-        <div id="PostGameHandler">
-
+        <div>
+            <LoginForm></LoginForm>
                 {isSignedIn ? (
                     <>
-                    <HighscoreList
-                        highscores={weeklyHighscores}
-                        loaduserscore={true}
-                    ></HighscoreList>
-
-                    <div id="buttonctn">
-                        <input
-                            className="buttonwhitesmall"
-                            type="submit"
-                            onClick={() => setScreen("game")}
-                            value="Play Again"
-                        />
-                    </div>
+                    {component}
                     </>
                 ) : (
                     <>
-                    <InputForm
+                    
+                    {/* <InputFormNew></InputFormNew> */}
+                    {/* <InputForm
                         onSignUp={handleSignUp}
-                    />
+                    /> */}
                     </>
 
                 )}
