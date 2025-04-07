@@ -8,7 +8,6 @@
     "strict": true,
 
     // ShadCN/UI
-
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -16,5 +15,5 @@
       ]
     }
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.mjs"]
 }

@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from "path"
+import tailwindcss from "@tailwindcss/vite"
 
 const buildmsg = () => {
     return {
@@ -21,8 +23,14 @@ export default defineConfig({
     base: './',
     plugins: [
         react(),
-        buildmsg()
+        buildmsg(), 
+        tailwindcss()
     ],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "..", "src")
+      },
+    },    
     logLevel: 'warning',
     build: {
         rollupOptions: {
