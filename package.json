@@ -21,16 +21,13 @@
   "scripts": {
     "update": "npm i @interactive-realm/phasergamelibrary@latest",
     "dev": "vite --config vite/config.dev.mjs",
-    "build": "vite build --config vite/config.prod.mjs",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build": "vite build --config vite/config.prod.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.3",
     "@interactive-realm/phasergamelibrary": "^0.27.0",
     "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.2",
-    "@supabase/supabase-js": "^2.44.2",
     "@tailwindcss/vite": "^4.1.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -49,14 +46,6 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.6",
-    "@storybook/addon-essentials": "^8.6.12",
-    "@storybook/addon-onboarding": "^8.6.12",
-    "@storybook/blocks": "^8.6.12",
-    "@storybook/experimental-addon-test": "^8.6.12",
-    "@storybook/react": "^8.6.12",
-    "@storybook/react-vite": "^8.6.12",
-    "@storybook/test": "^8.6.12",
     "@types/node": "^22.14.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -68,9 +57,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "eslint-plugin-storybook": "^0.12.0",
     "playwright": "^1.51.1",
-    "storybook": "^8.6.12",
     "terser": "^5.31.1",
     "typescript": "^5.5.3",
     "vite": "^5.3.3",

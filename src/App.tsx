@@ -13,9 +13,8 @@ import { Screen } from "./BasePatternComponents/routes";
 import { checkDate } from "./BasePatternComponents/campaignperiod"; 
 import './App.css'                                                                          // Custom CSS 
 
-
 function App() {
-    const [screen, setScreen] = useState<Screen>('pregame'); // Set Initial Screen
+    const [screen, setScreen] = useState<Screen>('postgame'); // Set Initial Screen
 
     let component; // React Render Component
 
@@ -33,7 +32,7 @@ function App() {
 
         // Switch to Post Game Page
         case "postgame":
-            component = <PostGameHandler setApplicationState={setScreen}/>;
+            component = <PostGameHandler setScreen={setScreen}/>;
             break;
         
         // Switch to Campaign Not Yet Started Page
