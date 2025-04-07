@@ -54,11 +54,6 @@ function App() {
         checkDate(new Date("2025-01-01"), new Date("2025-31-12"), setScreen);
     },[]);
             
-
-    // ------------------- LOCAL STORAGE DEBUG ------------------- //
-    // Keep this for now! Currently there are two options for local storage: LocalStorage and UserContext, LocalStorage data persists on page reload and UserContext does not.
-    //console.log("Localstorage: " + JSON.parse(localStorage.getItem('userinfo')!)); 
-
     // ----- The following is the components being rendered ----- //
     return (      
     <BrowserRouter>
