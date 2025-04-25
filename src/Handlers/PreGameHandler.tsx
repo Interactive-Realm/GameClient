@@ -9,12 +9,12 @@ const PreGameHandler: React.FC<Props> = ({ setScreen }) => {
 
     return (
 
-            <div id="PreGameHandler" className="containerScreenCenter">
-                <div>
-                    <div className="alignCenter largePaddingBottom mainFont largeFontSize">
+            <div id="PreGameHandler" className="flex h-screen">
+                <div className="flex-column justify-items-center m-auto text-lg">
+                    <div>
                     Intro Page
                     </div>
-                    <button className='darkButton' onClick={() => setScreen("game")}>Ready?</button>
+                    <button className="rounded-full bg-blue-500 p-2 px-4" onClick={() => setScreen("game")}>Ready?</button>
                 </div>
            </div>
     );
