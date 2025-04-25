@@ -1,0 +1,3 @@
+[submodule "PhaserGameLibrary"]
+	path = PhaserGameLibrary
+	url = https://github.com/Interactive-Realm/PhaserGameLibrary
