@@ -19,18 +19,17 @@ const GameOver: React.FC<FrontPageProps> = ({ onGameOver }) => {
 
 
     return (
-        <div>
-                <div id="gameover">
-                    <h2 id="subtitle3">GAME OVER</h2>
-                        <div>
-                            <p id="highscore_element" className="scoreTitle">Your Score</p>
-                            <p className="scoreText">{userInfo.score}</p>
-                        </div>
-                        <div className='container'>
-                            <button className='buttonwhite mainfont' onClick={handleButtonClick}>{userInfo.userExist ? (<>Leaderboard</>):(<>Sign-Up</>)}</button>
-                        </div>
-                </div>
-                    
+        <div className="flex h-screen">
+            <div id="gameover" className="flex-column justify-items-center m-auto text-lg">
+                <h2 id="subtitle3">GAME OVER</h2>
+                    <div className="">
+                        <p id="highscore_element" className="scoreTitle">Your Score:</p>
+                        <p className="scoreText">{userInfo.score}</p>
+                    </div>
+                    <div className=''>
+                        <button className='rounded-full bg-blue-500 p-2 px-4' onClick={handleButtonClick}>{userInfo.userExist ? (<>Leaderboard</>):(<>Sign-Up</>)}</button>
+                    </div>
+            </div>                    
         </div>
     );
 }
