@@ -1,7 +1,6 @@
 import { useLayoutEffect, useRef, useState, useContext } from 'react';
 
-import { SoapboxStart, OceanStart, FlappyStart } from '@interactive-realm/phasergamelibrary';
-import { EventBus } from '@interactive-realm/phasergamelibrary';
+import { SoapboxStart, OceanStart, FlappyStart, EventBus } from "../../PhaserGameLibrary/src/index"
 
 import GameOver from '../BasePatternComponents/GameOver';
 import { UserContext } from "../BasePatternComponents/UserContext";       // BasePatternUtilities Functions Import
@@ -22,7 +21,7 @@ const GameHandler: React.FC<Props> = ({ setScreen }) =>
         // Needs the gameEnd boolean or it will create a duplicate game when it reaches the GameOver Screen
         if (game.current === null && gameEnd == false)
         {
-            game.current = SoapboxStart("game-container", false); // Starts the Phaser Game
+            game.current = OceanStart("game-container", false); // Starts the Phaser Game
             console.log("NewGame");
         }
 

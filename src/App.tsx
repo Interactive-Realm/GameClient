@@ -14,7 +14,7 @@ import { checkDate } from "./BasePatternComponents/campaignperiod";
 import './App.css'                                                                          // Custom CSS 
 
 function App() {
-    const [screen, setScreen] = useState<Screen>('postgame'); // Set Initial Screen
+    const [screen, setScreen] = useState<Screen>('pregame'); // Set Initial Screen
 
     let component; // React Render Component
 
