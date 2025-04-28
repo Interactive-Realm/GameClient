@@ -53,6 +53,7 @@ function App() {
     // Campaign Runtime checker
     useEffect(()=>{
         checkDate(new Date("2025-01-01"), new Date("2025-31-12"), setScreen);
+        console.log(navigator.geolocation.getCurrentPosition);
     },[]);
             
     // ----- The following is the components being rendered ----- //
