@@ -8,8 +8,6 @@ interface Props {
     setScreen: React.Dispatch<React.SetStateAction<Screen>>; // Used to switch state of the application (Pregame, Game, Postgame etc..)
 }
 
-
-
 const RafflePage: React.FC<Props> = ({ setScreen }) => {
 
 const userInfo = React.useContext(UserContext);
