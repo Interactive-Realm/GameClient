@@ -7,6 +7,7 @@ import PostGameHandler from "./Handlers/PostGameHandler";                       
 
 import CampaignEnd from "./BasePatternComponents/CampaignEndComponent";                     // Import Campaign has ended page
 import CampaignStart from "./BasePatternComponents/CampaignStartComponent";                 // Import Campaign hasn't started yet page
+import { getUserLocation } from "./BasePatternComponents/UserLocation";
 
 import { UserContext } from "./BasePatternComponents/UserContext";       // BasePatternUtilities Functions Import
 import { Screen } from "./BasePatternComponents/routes"; 
@@ -53,7 +54,17 @@ function App() {
     // Campaign Runtime checker
     useEffect(()=>{
         checkDate(new Date("2025-01-01"), new Date("2025-31-12"), setScreen);
-        console.log(navigator.geolocation.getCurrentPosition);
+        
+        getUserLocation()
+      .then((location) => {
+        // This will log the location in the console
+        if (typeof location !== 'string') {
+          console.log('Location:', location);
+        }
+      })
+      .catch((err) => {
+        console.error('Error fetching location:', err);
+      });
     },[]);
             
     // ----- The following is the components being rendered ----- //
