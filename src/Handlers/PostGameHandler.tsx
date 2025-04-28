@@ -5,7 +5,9 @@ import InputFormNew from "../PostGame/Components/InputFormNew";                 
 import Page from "@/PostGame/Components/RegistrationForm";
 
 import { UserContext } from "../BasePatternComponents/UserContext";       // BasePatternUtilities Functions Import
-import { Screen } from "../BasePatternComponents/routes";       
+import { Screen } from "../BasePatternComponents/routes";     
+
+import GameOver from '../BasePatternComponents/GameOver';
 
 //Reward Pages
 import { RewardRoutes } from "../BasePatternComponents/routes"; 
@@ -18,11 +20,11 @@ interface Props {
 }
 
 const PostGameHandler: React.FC<Props> = ({ setScreen: setScreen }) => {
-    const [isSignedIn, setIsSignedIn] = useState(false);
+    const [isSignedIn, setIsSignedIn] = useState(true);
     
     const userInfo = useContext(UserContext);    
 
-    const [RewardRoutes, setRewardRoute] = useState<RewardRoutes>('leaderboard'); // Set Initial Screen
+    const [RewardRoutes, setRewardRoute] = useState<RewardRoutes>('raffle'); // Set Initial Screen
 
     let component; // React Render Component
 
