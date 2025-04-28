@@ -48,6 +48,7 @@ function App() {
 
     // Used to save data locally in the browser session (Data will disappear when page is refreshed, EG. by pressing F5)
     const userInfo = useContext(UserContext); 
+    
 
     // Campaign Runtime checker
     useEffect(()=>{
