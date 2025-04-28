@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState, useContext } from 'react';
 
 import { SoapboxStart, OceanStart, FlappyStart, EventBus } from "../../PhaserGameLibrary/src/index"
 
-import GameOver from '../BasePatternComponents/GameOver';
+
 import { UserContext } from "../BasePatternComponents/UserContext";       // BasePatternUtilities Functions Import
 import { Screen } from "../BasePatternComponents/routes"; 
 
@@ -43,22 +43,19 @@ const GameHandler: React.FC<Props> = ({ setScreen }) =>
 
     // Subscribe to gameHasEnded updates
     EventBus.on("gameHasEnded", (data: boolean) => {
-        setGameEnd(data);           
+        setGameEnd(data);    
+        setScreen("postgame");       
     });
 
     // Subscribe to score updates
     EventBus.on("score", (data: number) => {
         userInfo.score = data.toString();
+        console.log(userInfo);
     });
 
     return (
         <>
-        {gameEnd? (
-            <GameOver onGameOver={() => setScreen("postgame")}/> // If phaser game is over, show Game Over screen
-        ):(
             <div id="game-container"></div> // Else show div container for phaser game
-        )}
-        
         </>
     );
 
